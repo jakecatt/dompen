@@ -1,0 +1,87 @@
+/*# sourceMappingURL=style.css.map */
+@import url(./reset.css);
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+* {
+  border-sizing: border-box; }
+
+body, html {
+  height: 100%; }
+
+header {
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transition: background 0.3s ease; }
+  header .right-header,
+  header .left-header {
+    background: rgba(0, 0, 0, 0.8); }
+  header:after {
+    display: block;
+    clear: both;
+    content: " "; }
+
+.left-header {
+  width: 42%;
+  float: left; }
+  .left-header:after {
+    content: '';
+    display: block;
+    border: 0 solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.8);
+    border-width: 0px 0px 65px 90px;
+    position: absolute;
+    bottom: 0px;
+    left: 538px;
+    transform: rotate(180deg); }
+  .left-header ul {
+    list-style: none;
+    color: #fff; }
+    .left-header ul li {
+      display: inline-block;
+      margin-right: 2em; }
+
+.right-header {
+  float: right;
+  padding: 0 40px; }
+  .right-header:before {
+    content: '';
+    display: block;
+    border: 0 solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.8);
+    border-width: 0px 0px 65px 90px;
+    position: absolute;
+    bottom: 0px;
+    right: 246px; }
+  .right-header .logo {
+    height: 3em; }
+
+header.fixed {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0; }
+  header.fixed div {
+    background: none; }
+  header.fixed div:before,
+  header.fixed div:after {
+    display: none; }
+
+section {
+  height: 100%; }
+
+.home {
+  background: url("../images/main.jpg") no-repeat; }
+
+.product {
+  width: 100%;
+  text-align: center;
+  font-size: 0; }
+  .product .panel {
+    width: 33%;
+    height: 100%;
+    display: inline-block;
+    border: 1px solid black;
+    background: red; }
+
+/*# sourceMappingURL=style.css.map */

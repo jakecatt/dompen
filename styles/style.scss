@@ -1,0 +1,115 @@
+/*# sourceMappingURL=style.css.map */
+@import './reset.css';
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+
+//mixins and vars
+$accent: #8FD74B;
+$black-transparent: rgba(#000, 0.8);
+@mixin dompen {
+	font-family: "Comfortaa", cursive;
+}
+
+* {
+	border-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+}
+
+header {
+	@include dompen;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transition: background 0.3s ease;
+	.right-header, 
+	.left-header {
+		background: $black-transparent;
+	}
+	&:after {
+		display: block;
+		clear: both;
+		content: " ";
+	}
+	// z-index: 1;
+}
+
+.left-header {
+	width: 42%;
+	float: left;
+	&:after {
+		content: '';
+	  display: block;
+	  border: 0 solid transparent;
+	  border-bottom-color: $black-transparent;
+	  border-width: 0px 0px 65px 90px;
+	  position: absolute;
+	  bottom: 0px;
+	  left: 538px;
+	  transform: rotate(180deg);
+	}
+	ul {
+		list-style: none;
+		color: #fff;
+		li{
+			display: inline-block;
+			margin-right: 2em;
+		}
+	}
+}
+
+.right-header {
+	float: right;
+	padding: 0 40px;
+	&:before {
+		content: '';
+	  display: block;
+	  border: 0 solid transparent;
+	  border-bottom-color: $black-transparent;
+	  border-width: 0px 0px 65px 90px;
+	  position: absolute;
+	  bottom: 0px;
+	  right: 246px;
+	}
+	.logo {
+		height: 3em;
+	}
+}
+
+//fixed header
+header.fixed {
+	position: fixed;
+	background: $black-transparent;
+	top: 0;
+	div {
+		background: none;
+	}
+	div:before, 
+	div:after {
+		display: none;
+	}
+}
+
+section {
+	height: 100%;
+}
+
+.home {
+	background: url('../images/main.jpg') no-repeat;
+}
+
+.product {
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	.panel {
+		// margin-right: -5px;
+		width: 33%;
+		height: 100%;
+		display: inline-block;
+		border: 1px solid black;
+		background: red;
+	}
+}
