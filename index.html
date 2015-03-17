@@ -7,20 +7,30 @@
 </head>
 <body>
 <header>
-	<ul>
-		<li href="#product">PRODUCT</li>
-		<li href="find-us">FIND US</li>
-		<li href="faq">FAQ</li>
-		<li href="contact">CONTACT</li>
-	</ul>
-	<a href="/" >DOMPEN</a>
+	<div class="left-header">
+		<ul>
+			<li> <a href="#product"> PRODUCT </a> </li>
+			<li> <a href="#find-us"> FIND US </a></li>
+			<li> <a href="#faq"> FAQ </a></li>
+			<li> <a href="#contact"> CONTACT </a></li>
+		</ul>
+	</div>
+	<div class="right-header">
+		<a href="/"> <img src="images/logo.png" class="logo"></a>
+	</div>
 </header>
-<section class="home"></section>
-<section class="first" name="#product"></section>
-<section class="second" name="#find-us">
-	<div class="panel"></div>
-	<div class="panel"></div>
-	<div class="panel"></div>
-</section>
+
+	<section class="home"></section>
+	<section class="product"> <a name="product"></a>
+		<div class="panel"></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+	</section>
+	<section class="find-us"> <a name="find-us"></a></section>
+	<section class="faq"> <a name="faq"></a></section>
+	<section class="contact"> <a name="contact"></a></section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="script/script.js"></script>
 </body>
 </html>
