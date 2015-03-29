@@ -1,8 +1,14 @@
+<!-- Insert icons for product panels into spans with class icon -->
+<!-- blurring image with css, let me know if you want to upload blurred images instead -->
+
+
 <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>DOMPEN</title>
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
@@ -21,16 +27,186 @@
 </header>
 
 	<section class="home"></section>
+
 	<section class="product"> <a name="product"></a>
-		<div class="panel"></div>
-		<div class="panel"></div>
-		<div class="panel"></div>
+		<div class="panel">
+			<img class="panel-image" src="images/main.jpg">
+			<span class="desc"> 
+				<span class="icon"> + </span> 
+				<h2>Stealth </h2>
+
+			</span> 
+
+			<span class="full-desc">
+				<h3> Stealth </h3>
+				<p> 
+				<span class="bolded">
+					A revolutionary new way to consume cannabis efficiently with 100% discretion.
+				</span>
+				<p>
+					The DomPen formula is a specially designed e-cigarete formula that ensure the discreet inhalation of your medication. After each puff, the aroma will match the flavoring, completely masking the tradional cannabis smell.
+				</p>
+			</span>
+		</div>
+		<div class="panel">
+			<img class="panel-image" src="images/smoke.jpg">
+			<span class="desc"> 
+				<span class="icon"> + </span> 
+				<h2> Health </h2> 
+			</span>
+			<span class="full-desc">
+				<h3> Health </h3>
+				<p> 
+				<span class="bolded">
+					A revolutionary new way to consume cannabis efficiently with 100% discretion.
+				</span>
+				<p>
+					The DomPen formula is a specially designed e-cigarete formula that ensure the discreet inhalation of your medication. After each puff, the aroma will match the flavoring, completely masking the tradional cannabis smell.
+				</p>
+			</span>
+		</div>
+		<div class="panel">
+			<img class="panel-image" src="images/main.jpg">
+			<span class="desc"> 
+				<span class="icon"> &#x1f4a7; </span> 
+				<h2>Flavor </h2>
+			</span>
+			<span class="full-desc">
+				<h3> Flavor </h3>
+				<p> 
+				<span class="bolded">
+					A revolutionary new way to consume cannabis efficiently with 100% discretion.
+				</span>
+				<p>
+					The DomPen formula is a specially designed e-cigarete formula that ensure the discreet inhalation of your medication. After each puff, the aroma will match the flavoring, completely masking the tradional cannabis smell.
+				</p>
+			</span>				
+		</div>	
 	</section>
-	<section class="find-us"> <a name="find-us"></a></section>
-	<section class="faq"> <a name="faq"></a></section>
+
+	<section class="find-us"><a name="find-us"></a>
+		<div id="map"></div>
+		<div class="los-angeles locations">
+			<h2 class="area"> Los Angeles </h2>
+		</div>
+		<div class="san-jose locations">
+			<h2 class="area"> San Jose </h2>
+		</div>
+	</section>
+
+	<section class="faq"> <a name="faq"></a>
+		<div class="next">
+			<p>&#x3e;</p>
+		</div>
+		<div class="prev">
+			<p>&#x3c;</p>
+		</div>
+		<div class="row">
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2> What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2> What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+			<div class="panel">
+				<img class="panel-image" src="images/main.jpg">
+				<span class="quest">  
+					<h2>What makes DomPens different? </h2>
+				</span> 
+
+				<span class="answer">
+					<p> 
+						A revolutionary new way to consume cannabis efficiently with 100% discretion.
+					</p>
+				</span>
+			</div>
+		</div>
+	</section>
+	
 	<section class="contact"> <a name="contact"></a></section>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="script/locations.js"></script>
 	<script src="script/script.js"></script>
 </body>
 </html>

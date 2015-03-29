@@ -1,20 +1,36 @@
 /*# sourceMappingURL=style.css.map */
-@import './reset.css';
+@import "bourbon/bourbon";
+@import "./reset.css";
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 
 //mixins and vars
 $accent: #8FD74B;
 $black-transparent: rgba(#000, 0.8);
 @mixin dompen {
-	font-family: "Comfortaa", cursive;
+	font-family: "Comfortaa", 'Avenir', sans-serif;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 * {
-	border-sizing: border-box;
+	box-sizing:border-box;
 }
 
 body, html {
 	height: 100%;
+	color: #fff;
+}
+
+a,
+a:visited {
+	color: inherit;
+	text-decoration: none;
 }
 
 header {
@@ -23,7 +39,7 @@ header {
 	position: absolute;
 	top: 50%;
 	width: 100%;
-	transition: background 0.3s ease;
+	@include transition(background 0.3s ease);
 	.right-header, 
 	.left-header {
 		background: $black-transparent;
@@ -33,7 +49,7 @@ header {
 		clear: both;
 		content: " ";
 	}
-	// z-index: 1;
+	z-index: 100000;
 }
 
 .left-header {
@@ -105,11 +121,215 @@ section {
 	text-align: center;
 	font-size: 0;
 	.panel {
-		// margin-right: -5px;
-		width: 33%;
+		width: 33.33%;
 		height: 100%;
 		display: inline-block;
-		border: 1px solid black;
-		background: red;
+		background: #000;
+		overflow: hidden;
+		text-align: center;
+		position: relative;
+		@include transition(all 200ms);
+		&:hover .panel-image {
+			@include filter(blur(3px));
+			@include transition(opacity ease-in 200ms);
+		}
+		&:hover .full-desc {
+			opacity: 1;
+		}
+		&:hover .desc {
+			opacity: 0;
+		}
+		.desc {
+			position: absolute;
+			margin: 20px;
+			font-size: 30px;
+			top: 30%;
+			right: 0;
+			left: 0;
+			opacity: 1;
+			@include transition(all 200ms);
+			h2 {
+				text-transform: uppercase;
+			}
+			.icon {
+				display: block;
+			}
+		}
+		.full-desc {
+			opacity: 0;
+			top: 20%;
+			bottom: 0;
+			font-size: 20px;
+			padding: 40px;
+			position: absolute;
+			right: 0;
+			left: 0;
+			@include transition( opacity 200ms);
+			h3 {
+				text-transform: uppercase;
+				color: $accent;
+				font-size: 40px;
+			}
+			.bolded {
+				font-weight: bolder;
+			}
+			p {
+				font-size: 20px;
+				font-weight: lighter;
+			}
+		}
+		.panel-image {
+			position: absolute;
+			z-index: 0;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			@include transition(all 900ms);
+		}
+	}
+}
+
+.find-us {
+	background: rgba(#000, 0.7);
+	overflow: auto;
+	text-align: center;
+	.locations {
+		margin-top: 60px;
+		float: right;
+		width: 30%;
+		overflow: scroll;
+		h2 {
+			color: $accent;
+		}
+		.location {
+			margin: 20px;
+			float: left;
+			span {
+				display: block;
+			}
+			p {
+			  line-height: 1.3;
+				font-weight: lighter;
+			}
+			h4 {
+				margin: 0;
+			}
+		}
+	}
+	#map {
+		margin: 0;
+		float: left;
+		width: 65%;
+		height: 100%;
+		-webkit-box-shadow: 11px 0px 13px 0px rgba(46,46,46,1);
+		-moz-box-shadow: 11px 0px 13px 0px rgba(46,46,46,1);
+		box-shadow: 11px 0px 13px 0px rgba(46,46,46,1);
+	}
+}
+
+.faq {
+  white-space: nowrap;
+  vertical-align: top;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+  padding-bottom: 16px;
+	.row {
+	  position: relative;
+	  top: 0;
+	  background: #333;
+	  left: 0;
+	  @include transform(translate3d(0,0,0));
+	  @include transition(left 500ms);
+	}
+	.panel {
+		width: 500px; height: 300px;
+		display: inline-block;
+		background: #000;
+		position: relative;
+		@include transition(all 200ms);
+		&:hover .panel-image {
+			@include filter(blur(3px));
+			@include transition(opacity ease-in 200ms);
+		}
+		&:hover .answer {
+			opacity: 1;
+		}
+		&:hover .quest {
+			opacity: 0;
+		}
+		.quest {
+			position: absolute;
+			font-size: 20px;
+			top: 30%;
+			right: 0;
+			left: 0;
+			@include transition(all 200ms);
+		}
+		.answer {
+			opacity: 0;
+			top: 20%;
+			bottom: 0;
+			font-size: 20px;
+			padding: 40px;
+			position: absolute;
+			right: 0;
+			left: 0;
+			@include transition( opacity 200ms);
+			p {
+				font-size: 20px;
+				font-weight: lighter;
+			}
+		}
+		.panel-image {
+			position: absolute;
+			display: inline-block;
+			z-index: 0;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			@include transition(all 900ms);
+		}
+		h2, 
+		p {
+			padding: 30px;
+			word-wrap: break-word;
+			white-space: normal;
+			line-height: 1;
+		}
+	}
+	.next, .prev {
+	  position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  font-size: 100px;
+	  font-weight: bolder;
+	  z-index: 10;
+	  display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+		align-items: center;
+		p {
+			cursor: pointer;
+			opacity: 0.3;
+			@include transition(opacity 200ms );
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	.prev {
+		left: 0;
+	}
+	.next {
+		right: 0;
 	}
 }

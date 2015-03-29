@@ -2,18 +2,27 @@
 @import url(./reset.css);
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 * {
-  border-sizing: border-box; }
+  box-sizing: border-box; }
 
 body, html {
-  height: 100%; }
+  height: 100%;
+  color: #fff; }
+
+a,
+a:visited {
+  color: inherit;
+  text-decoration: none; }
 
 header {
-  font-family: "Comfortaa", cursive;
+  font-family: "Comfortaa", 'Avenir', sans-serif;
   font-size: 20px;
   position: absolute;
   top: 50%;
   width: 100%;
-  transition: background 0.3s ease; }
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  z-index: 100000; }
   header .right-header,
   header .left-header {
     background: rgba(0, 0, 0, 0.8); }
@@ -78,10 +87,211 @@ section {
   text-align: center;
   font-size: 0; }
   .product .panel {
-    width: 33%;
+    width: 33.33%;
     height: 100%;
     display: inline-block;
-    border: 1px solid black;
-    background: red; }
+    background: #000;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    transition: all 200ms; }
+    .product .panel:hover .panel-image {
+      -webkit-filter: blur(3px);
+      filter: blur(3px);
+      -webkit-transition: opacity ease-in 200ms;
+      -moz-transition: opacity ease-in 200ms;
+      transition: opacity ease-in 200ms; }
+    .product .panel:hover .full-desc {
+      opacity: 1; }
+    .product .panel:hover .desc {
+      opacity: 0; }
+    .product .panel .desc {
+      position: absolute;
+      margin: 20px;
+      font-size: 30px;
+      top: 30%;
+      right: 0;
+      left: 0;
+      opacity: 1;
+      -webkit-transition: all 200ms;
+      -moz-transition: all 200ms;
+      transition: all 200ms; }
+      .product .panel .desc h2 {
+        text-transform: uppercase; }
+      .product .panel .desc .icon {
+        display: block; }
+    .product .panel .full-desc {
+      opacity: 0;
+      top: 20%;
+      bottom: 0;
+      font-size: 20px;
+      padding: 40px;
+      position: absolute;
+      right: 0;
+      left: 0;
+      -webkit-transition: opacity 200ms;
+      -moz-transition: opacity 200ms;
+      transition: opacity 200ms; }
+      .product .panel .full-desc h3 {
+        text-transform: uppercase;
+        color: #8FD74B;
+        font-size: 40px; }
+      .product .panel .full-desc .bolded {
+        font-weight: bolder; }
+      .product .panel .full-desc p {
+        font-size: 20px;
+        font-weight: lighter; }
+    .product .panel .panel-image {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      -webkit-transition: all 900ms;
+      -moz-transition: all 900ms;
+      transition: all 900ms; }
+
+.find-us {
+  background: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  text-align: center; }
+  .find-us .locations {
+    margin-top: 60px;
+    float: right;
+    width: 30%;
+    overflow: scroll; }
+    .find-us .locations h2 {
+      color: #8FD74B; }
+    .find-us .locations .location {
+      margin: 20px;
+      float: left; }
+      .find-us .locations .location span {
+        display: block; }
+      .find-us .locations .location p {
+        line-height: 1.3;
+        font-weight: lighter; }
+      .find-us .locations .location h4 {
+        margin: 0; }
+  .find-us #map {
+    margin: 0;
+    float: left;
+    width: 65%;
+    height: 100%;
+    -webkit-box-shadow: 11px 0px 13px 0px #2e2e2e;
+    -moz-box-shadow: 11px 0px 13px 0px #2e2e2e;
+    box-shadow: 11px 0px 13px 0px #2e2e2e; }
+
+.faq {
+  white-space: nowrap;
+  vertical-align: top;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+  padding-bottom: 16px; }
+  .faq .row {
+    position: relative;
+    top: 0;
+    background: #333;
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: left 500ms;
+    -moz-transition: left 500ms;
+    transition: left 500ms; }
+  .faq .panel {
+    width: 500px;
+    height: 300px;
+    display: inline-block;
+    background: #000;
+    position: relative;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    transition: all 200ms; }
+    .faq .panel:hover .panel-image {
+      -webkit-filter: blur(3px);
+      filter: blur(3px);
+      -webkit-transition: opacity ease-in 200ms;
+      -moz-transition: opacity ease-in 200ms;
+      transition: opacity ease-in 200ms; }
+    .faq .panel:hover .answer {
+      opacity: 1; }
+    .faq .panel:hover .quest {
+      opacity: 0; }
+    .faq .panel .quest {
+      position: absolute;
+      font-size: 20px;
+      top: 30%;
+      right: 0;
+      left: 0;
+      -webkit-transition: all 200ms;
+      -moz-transition: all 200ms;
+      transition: all 200ms; }
+    .faq .panel .answer {
+      opacity: 0;
+      top: 20%;
+      bottom: 0;
+      font-size: 20px;
+      padding: 40px;
+      position: absolute;
+      right: 0;
+      left: 0;
+      -webkit-transition: opacity 200ms;
+      -moz-transition: opacity 200ms;
+      transition: opacity 200ms; }
+      .faq .panel .answer p {
+        font-size: 20px;
+        font-weight: lighter; }
+    .faq .panel .panel-image {
+      position: absolute;
+      display: inline-block;
+      z-index: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      -webkit-transition: all 900ms;
+      -moz-transition: all 900ms;
+      transition: all 900ms; }
+    .faq .panel h2,
+    .faq .panel p {
+      padding: 30px;
+      word-wrap: break-word;
+      white-space: normal;
+      line-height: 1; }
+  .faq .next, .faq .prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-size: 100px;
+    font-weight: bolder;
+    z-index: 10;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center; }
+    .faq .next p, .faq .prev p {
+      cursor: pointer;
+      opacity: 0.3;
+      -webkit-transition: opacity 200ms;
+      -moz-transition: opacity 200ms;
+      transition: opacity 200ms; }
+      .faq .next p:hover, .faq .prev p:hover {
+        opacity: 0.8; }
+  .faq .prev {
+    left: 0; }
+  .faq .next {
+    right: 0; }
 
 /*# sourceMappingURL=style.css.map */
