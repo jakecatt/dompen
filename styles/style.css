@@ -76,7 +76,7 @@ header.fixed {
   header.fixed div:after {
     display: none; }
 
-section {
+.home, .product, .faq, .find-us {
   height: 100%; }
 
 .home {
@@ -156,8 +156,11 @@ section {
 
 .find-us {
   background: rgba(0, 0, 0, 0.7);
-  overflow: auto;
   text-align: center; }
+  .find-us::after {
+    clear: both;
+    content: "";
+    display: table; }
   .find-us .locations {
     margin-top: 60px;
     float: right;
@@ -191,13 +194,13 @@ section {
   line-height: 0;
   overflow: hidden;
   color: #fff;
-  position: relative;
-  padding-bottom: 16px; }
+  position: relative; }
   .faq .row {
     position: relative;
     top: 0;
     background: #333;
     left: 0;
+    bottom: 0;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -293,5 +296,82 @@ section {
     left: 0; }
   .faq .next {
     right: 0; }
+
+.contact {
+  padding: 50px;
+  background: url("../images/main.jpg") no-repeat;
+  /* ie */ }
+  .contact ::-webkit-input-placeholder {
+    font-style: italic; }
+  .contact ::-moz-placeholder {
+    font-style: italic; }
+  .contact :-ms-input-placeholder {
+    font-style: italic; }
+  .contact input:-moz-placeholder {
+    font-style: italic; }
+  .contact::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .contact h2 {
+    margin-top: 80px; }
+  .contact form::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .contact form input, .contact form textarea {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #fff; }
+  .contact form .left,
+  .contact form .right {
+    width: 50%; }
+    .contact form .left input,
+    .contact form .right input {
+      width: 80%; }
+  .contact form .left {
+    float: left; }
+  .contact form .right {
+    float: right;
+    text-align: right; }
+    .contact form .right input[name="zip"],
+    .contact form .right input[name="state"] {
+      width: 35%;
+      display: inline-block; }
+    .contact form .right input[name="zip"] {
+      margin-left: 54px; }
+  .contact form .cleared {
+    clear: both;
+    width: 100%; }
+    .contact form .cleared textarea {
+      width: 100%;
+      height: 100px; }
+  .contact form input[type="submit"] {
+    float: right;
+    border: none;
+    background: none;
+    font-weight: bolder; }
+
+.more-info {
+  padding: 50px;
+  background: url(../images/main.jpg) no-repeat; }
+  .more-info span {
+    color: #8FD74B;
+    font-weight: lighter; }
+  .more-info h2 span {
+    display: block; }
+  .more-info p {
+    width: 70%;
+    font-size: 25px;
+    line-height: 1.5;
+    font-style: italic;
+    font-weight: lighter; }
+  .more-info .social .logo {
+    width: 200px;
+    display: block; }
+  .more-info .social img {
+    width: 60px; }
 
 /*# sourceMappingURL=style.css.map */
