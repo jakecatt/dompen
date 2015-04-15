@@ -77,46 +77,18 @@ $(document).ready(function(){
 		// Add features to the map.
 		myLayer.setGeoJSON(geoJson);		
 	}
-	//carousel for FAQ section
-	$('.next p').on('click', function(){
-		showNext();
-	})
-	$('.prev p').on('click', function(){
-		showPrev();
-	})	
-})
 
-var current_index = current_index || 0;
-function offsetImages(container, idx) {
-	var numImages = $('.faq .panel').length / 2;
-  var numberOfFullPanes = Math.round(numImages / 3);
-  var numberOfPartialPanes = (numImages % 3 > 0) ? 1 : 0;
-  var totalPanes = numberOfFullPanes + numberOfPartialPanes;
-  var boxWidth = $('.faq .panel').width();
-  var paneWidth = container.width();
-  var percentage;
-  var offset;
-  if (idx + 1 > totalPanes){ idx = 0; }
-  if (idx < 0 ){ idx = totalPanes -1;}
+  // Carousel
+  $('.panel').css({
+    'height': $('.faq').height()/2 + "px"
+  })
+  $('.carousel').slick({
+   slidesToShow: 3,
+    slidesToScroll: 1
+  });
+});
 
-  if (idx + 1 > numberOfFullPanes) {
-    offset = (numberOfFullPanes * paneWidth - (boxWidth * (2.2 - numberOfPartialPanes)));
-  } else {
-    offset = idx * paneWidth;
-  }
-  $('.row').css("left", "-" + offset + "px");
-  current_index = idx
-}
 
-function showPrev() {
-	var prevIdx = current_index - 1;
-	offsetImages($('.faq'), prevIdx);
-}
-
-function showNext() {
-	var nextIdx = current_index + 1;
-	offsetImages($('.faq'), nextIdx);
-}
 function latLng(data) {
 	var lat = (data._southWest.lat + data._northEast.lat)/2;
   var lng = (data._southWest.lng + data._northEast.lng)/2;
@@ -128,7 +100,6 @@ function showLocationsList() {
 	for (var i = 0; i < locations.length; i++) {
 		var location = locations[i];
 		var area = location.area;
-		console.log(area, $('.' + area));
 		$('.' + area).append(displayLocation(location.name, location.streetAddress, location.city, location.state, location.zip));
 	};
 }
