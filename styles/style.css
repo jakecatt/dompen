@@ -68,6 +68,8 @@ header.fixed {
     display: none; }
   header.fixed .right-header, header.fixed .left-header {
     top: -70px; }
+  header.fixed .right-header {
+    margin-top: 8px; }
 
 .home, .product, .faq, .find-us, .contact, .more-info {
   height: 100%; }
@@ -108,7 +110,7 @@ header.fixed {
       position: absolute;
       margin: 20px;
       font-size: 30px;
-      top: 30%;
+      top: 10%;
       right: 0;
       left: 0;
       opacity: 1;
