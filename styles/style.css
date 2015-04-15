@@ -13,6 +13,17 @@ a:visited {
   color: inherit;
   text-decoration: none; }
 
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1); }
+
+body::-webkit-scrollbar {
+  width: 2px;
+  background: rgba(0, 0, 0, 0.8); }
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4); }
+
 header {
   font-family: "Comfortaa", 'Avenir', sans-serif;
   font-size: 20px;
@@ -59,6 +70,17 @@ header {
     text-align: center; }
     header .right-header img {
       width: 150px; }
+  @media (max-width: 1200px) {
+    header {
+      position: fixed;
+      top: 0;
+      border-top: 60px solid rgba(0, 0, 0, 0.8); }
+      header .right-angle, header .left-angle {
+        display: none; }
+      header .right-header, header .left-header {
+        top: -70px; }
+      header .right-header {
+        margin-top: 8px; } }
 
 header.fixed {
   position: fixed;
@@ -78,8 +100,16 @@ header.fixed {
     content: "";
     display: table; }
 
-.home {
-  background: url("../images/main.jpg") no-repeat; }
+.home video#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover; }
 
 .product {
   width: 100%;
@@ -96,9 +126,9 @@ header.fixed {
     -webkit-transition: all 200ms;
     -moz-transition: all 200ms;
     transition: all 200ms; }
-    .product .panel-product:hover .panel-image {
-      -webkit-filter: blur(3px);
-      filter: blur(3px);
+    .product .panel-product:hover .panel-product-image {
+      -webkit-filter: blur(10px);
+      filter: blur(10px);
       -webkit-transition: opacity ease-in 200ms;
       -moz-transition: opacity ease-in 200ms;
       transition: opacity ease-in 200ms; }
@@ -124,7 +154,6 @@ header.fixed {
     .product .panel-product .full-desc {
       opacity: 0;
       top: 20%;
-      bottom: 0;
       font-size: 20px;
       padding: 40px;
       position: absolute;
@@ -294,6 +323,7 @@ header.fixed {
 .contact {
   padding: 50px;
   background: url("../images/main.jpg") no-repeat;
+  background-size: cover;
   /* ie */ }
   .contact ::-webkit-input-placeholder {
     font-style: italic; }
@@ -350,7 +380,8 @@ header.fixed {
 
 .more-info {
   padding: 50px;
-  background: url(../images/main.jpg) no-repeat; }
+  background: url(../images/main.jpg) no-repeat;
+  background-size: cover; }
   .more-info span {
     color: #8FD74B;
     font-weight: lighter; }

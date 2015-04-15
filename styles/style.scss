@@ -6,6 +6,10 @@
 //mixins and vars
 $accent: #8FD74B;
 $black-transparent: rgba(#000, 0.8);
+$break-large: 1200px;
+$break-medium: 700px;
+$break-small: 500px;
+
 @mixin dompen {
 	font-family: "Comfortaa", 'Avenir', sans-serif;
 }
@@ -31,6 +35,25 @@ a,
 a:visited {
 	color: inherit;
 	text-decoration: none;
+}
+
+//scrollbar
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: rgba($black-transparent, 0.1);
+}
+
+body::-webkit-scrollbar
+{
+	width: 2px;
+	background: $black-transparent;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: rgba(#fff, 0.4);
 }
 
 header {
@@ -86,6 +109,20 @@ header {
 			width: 150px;
 		}
 	}
+	@media (max-width: $break-large){
+		position: fixed;
+		top: 0;
+		border-top: 60px solid $black-transparent;
+		.right-angle, .left-angle {
+			display: none;
+		}
+		.right-header, .left-header {
+			top: -70px;
+		}
+		.right-header {
+			margin-top: 8px;
+		}
+	}
 }
 
 
@@ -112,7 +149,13 @@ header.fixed {
 }
 
 .home {
-	background: url('../images/main.jpg') no-repeat;
+	video#bgvid {
+		position: fixed; right: 0; bottom: 0;
+		min-width: 100%; min-height: 100%;
+		width: auto; height: auto; z-index: -100;
+		// background: url(polina.jpg) no-repeat;
+		background-size: cover;
+	}
 }
 
 .product {
@@ -128,8 +171,8 @@ header.fixed {
 		text-align: center;
 		position: relative;
 		@include transition(all 200ms);
-		&:hover .panel-image {
-			@include filter(blur(3px));
+		&:hover .panel-product-image {
+			@include filter(blur(10px));
 			@include transition(opacity ease-in 200ms);
 		}
 		&:hover .full-desc {
@@ -157,7 +200,6 @@ header.fixed {
 		.full-desc {
 			opacity: 0;
 			top: 20%;
-			bottom: 0;
 			font-size: 20px;
 			padding: 40px;
 			position: absolute;
@@ -340,6 +382,7 @@ header.fixed {
 .contact {
 	padding: 50px;
 	background: url('../images/main.jpg') no-repeat;
+	background-size: cover;
 	::-webkit-input-placeholder { font-style: italic; }
 	::-moz-placeholder { font-style: italic; }
 	:-ms-input-placeholder { font-style: italic; } /* ie */
@@ -399,6 +442,7 @@ header.fixed {
 .more-info {
 	padding: 50px;
 	background: url(../images/main.jpg) no-repeat;
+	background-size: cover;
 	span {
 		color: $accent;
 		font-weight: lighter;
