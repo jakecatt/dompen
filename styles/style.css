@@ -83,7 +83,7 @@ header.fixed {
   width: 100%;
   text-align: center;
   font-size: 0; }
-  .product .panel {
+  .product .panel-product {
     width: 33.33%;
     height: 100%;
     display: inline-block;
@@ -94,17 +94,17 @@ header.fixed {
     -webkit-transition: all 200ms;
     -moz-transition: all 200ms;
     transition: all 200ms; }
-    .product .panel:hover .panel-image {
+    .product .panel-product:hover .panel-image {
       -webkit-filter: blur(3px);
       filter: blur(3px);
       -webkit-transition: opacity ease-in 200ms;
       -moz-transition: opacity ease-in 200ms;
       transition: opacity ease-in 200ms; }
-    .product .panel:hover .full-desc {
+    .product .panel-product:hover .full-desc {
       opacity: 1; }
-    .product .panel:hover .desc {
+    .product .panel-product:hover .desc {
       opacity: 0; }
-    .product .panel .desc {
+    .product .panel-product .desc {
       position: absolute;
       margin: 20px;
       font-size: 30px;
@@ -115,11 +115,11 @@ header.fixed {
       -webkit-transition: all 200ms;
       -moz-transition: all 200ms;
       transition: all 200ms; }
-      .product .panel .desc h2 {
+      .product .panel-product .desc h2 {
         text-transform: uppercase; }
-      .product .panel .desc .icon {
+      .product .panel-product .desc .icon {
         display: block; }
-    .product .panel .full-desc {
+    .product .panel-product .full-desc {
       opacity: 0;
       top: 20%;
       bottom: 0;
@@ -131,16 +131,16 @@ header.fixed {
       -webkit-transition: opacity 200ms;
       -moz-transition: opacity 200ms;
       transition: opacity 200ms; }
-      .product .panel .full-desc h3 {
+      .product .panel-product .full-desc h3 {
         text-transform: uppercase;
         color: #8FD74B;
         font-size: 40px; }
-      .product .panel .full-desc .bolded {
+      .product .panel-product .full-desc .bolded {
         font-weight: bolder; }
-      .product .panel .full-desc p {
+      .product .panel-product .full-desc p {
         font-size: 20px;
         font-weight: lighter; }
-    .product .panel .panel-image {
+    .product .panel-product .panel-product-image {
       position: absolute;
       z-index: 0;
       top: 0;

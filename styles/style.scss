@@ -118,7 +118,7 @@ header.fixed {
 	width: 100%;
 	text-align: center;
 	font-size: 0;
-	.panel {
+	.panel-product {
 		width: 33.33%;
 		height: 100%;
 		display: inline-block;
@@ -176,7 +176,7 @@ header.fixed {
 				font-weight: lighter;
 			}
 		}
-		.panel-image {
+		.panel-product-image {
 			position: absolute;
 			z-index: 0;
 			top: 0;
