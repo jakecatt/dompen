@@ -82,9 +82,18 @@ $(document).ready(function(){
   $('.panel').css({
     'height': $('.faq').height()/2 + "px"
   })
+
+  if ($(document).width() < 1000) {
+    slidesToShow = 2
+    $('.answer').addClass('show')
+  } else{
+    slidesToShow = 4
+  };
+
   $('.carousel').slick({
-   slidesToShow: 3,
-    slidesToScroll: 1
+    swipeToSLide: true,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 2
   });
 });
 
