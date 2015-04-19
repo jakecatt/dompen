@@ -16,7 +16,7 @@ $(document).ready(function(){
 		console.log(target)
     $('html, body').stop().animate({
     	scrollTop: target.offset().top
-    }, 800);
+    }, 2000);
 	})
 
 	//display locations stored in the locations.js file
@@ -60,7 +60,7 @@ $(document).ready(function(){
 	    "properties": {
         "title": "DomPen",
         "icon": {
-          "iconUrl": "images/logo.png", //INSERT PATH TO LOGO HERE
+          "iconUrl": "images/DomPen_Icons/DomPenLogo_forMap.png", //INSERT PATH TO LOGO HERE
           "iconSize": [50, 50], // size of the icon
           "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
           // "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
@@ -78,20 +78,44 @@ $(document).ready(function(){
 		myLayer.setGeoJSON(geoJson);		
 	}
 
-  // Carousel
+  // Carousel and responsive js
   $('.panel').css({
     'height': $('.faq').height()/2 + "px"
   })
 
   if ($(document).width() < 1000) {
-    slidesToShow = 2
-    $('.answer').addClass('show')
+    slidesToShow = 2;
+    $('.answer').addClass('show');
+    $('video').hide();
+    $('.home').addClass('small');
+    $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() + "px"
+    })
+    $('.faq .column .panel').css({
+      height: $(window).height() / 2 + "px"
+    })
+  } else if ($(document).width() > 1000 && $(document).width() < 1200) {
+    slidesToShow = 3;
+    $('video').hide();
+    $('.home').addClass('small');    
+    $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() + "px"
+    })
+    $('.faq .column .panel').css({
+      height: $(window).height() / 2 + "px"
+    })    
   } else{
-    slidesToShow = 4
+    $('.parallax').addClass('active');
+    $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+      height: $(window).height() + "px"
+    })
+    $('.faq.parallax-layer .column .panel').css({
+      height: $(window).height() / 2 + "px"
+    })
+    slidesToShow = 4;
   };
 
   $('.carousel').slick({
-    swipeToSLide: true,
     slidesToShow: slidesToShow,
     slidesToScroll: 2
   });

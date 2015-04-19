@@ -7,7 +7,8 @@
 $accent: #8FD74B;
 $black-transparent: rgba(#000, 0.8);
 $break-large: 1200px;
-$break-medium: 1000px;
+$break-medium: 1100px;
+$break-small: 1000px;
 
 @mixin dompen {
 	font-family: "Comfortaa", 'Avenir', sans-serif;
@@ -55,11 +56,25 @@ body::-webkit-scrollbar-thumb
 	background-color: rgba(#fff, 0.4);
 }
 
-.down-arrow {
-	position: relative;
-	background: red;
+// parallax 
+.parallax.active {
+	height: auto;
+	width: 100%;
+	background-image: url("../images/main.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  @include clearfix;
+  .overlay {
+  	background: url("../images/overlay.png");
+  }
+	.home, .product, .faq, .find-us, .contact {
+		margin-bottom: 300px;
+	}
 }
 
+//header
 header {
 	@include dompen;
 	font-size: 20px;
@@ -88,7 +103,7 @@ header {
 	.left-header {
 		position: absolute;
 		left: 0;
-		width: 50%;
+		width: 55%;
 	}
 
 	ul.left-header {
@@ -100,7 +115,7 @@ header {
 		@include clearfix;
 		li{
 			float: left;
-			margin-right: 2em;
+			margin-right: 5em;
 		}
 	}
 
@@ -113,7 +128,28 @@ header {
 			width: 150px;
 		}
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	@media (max-width: $break-medium) {
+		font-size: 25px;
+		& .right-header img{
+			margin-right: -44px;
+		}
+		& .right-header {
+			img {
+				width: 160px;
+			}
+		}
+		& .left-header {
+			width: 60%;
+		}	
+		ul.left-header {
+			top: -20px;
+			li {
+				margin-top: 10px;
+				margin-right: 1em;
+			}
+		}
+	}
+	@media (max-width: $break-small) {
 		font-size: 30px;
 		border-top: 100px solid $black-transparent;
 		.right-angle, .left-angle {
@@ -148,10 +184,21 @@ header.fixed {
 	.right-angle, .left-angle {
 		display: none;
 	}
-	.right-header, .left-header {
+	.left-header {
 		top: -65px;
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	.right-header {
+	  top: -58px;
+	}
+
+	@media (max-width: $break-medium) {
+		.left-header {
+			font-size: 25px;
+			top: -55px;
+			margin: 0;
+		}
+	}
+	@media (max-width: $break-small) {
 		border-top: 100px solid $black-transparent;
 		.right-header, .left-header {
 			top: -95px;
@@ -187,12 +234,17 @@ header.fixed {
 		background-size: cover;
 	}
 	overflow: hidden;
+	&.small {
+		background: url("../images/main.jpg");
+		background-size: cover; 
+	}
 }
 
 .product {
 	width: 100%;
 	text-align: center;
 	font-size: 0;
+	background: $black-transparent;
 	.panel-product {
 		width: 33.33%;
 		height: 100%;
@@ -203,7 +255,7 @@ header.fixed {
 		position: relative;
 		@include transition(all 200ms);
 		&:hover .panel-product-image {
-			@include filter(blur(10px));
+			@include filter(blur(15px));
 			@include transition(opacity ease-in 200ms);
 		}
 		&:hover .full-desc {
@@ -259,31 +311,21 @@ header.fixed {
 			bottom: 0;
 			@include transition(all 900ms);
 		}
-	}
-	@media (max-width: $break-large) {
-		.panel-product { 
-			.desc {
-				top: 30%;
-			}
-			.full-desc {
-				top: 20%;
-			}
-		}
 	}	
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	@media (max-width: $break-small) {
 		.panel-product { 
 			display: block;
 			min-width: 100%;
-			height: 33.4%;//3333%;
+			height: 33.4%;
 			.desc {
 				display: none;
 			}
 			.full-desc {
 				display: block;
 				opacity: 1;
-				top: 5%;
+				top: 0;
 				font-size: 20px;
-				padding: 40px;
+				padding: 10px;
 				position: absolute;
 				right: 0;
 				left: 0;
@@ -310,18 +352,26 @@ header.fixed {
 }
 
 .find-us {
-	background: rgba(#000, 0.7);
+	background: #595959;
 	@include clearfix;
 	text-align: center;
+	overflow: hidden;
 	.location-container {
-		margin: 60px auto;
+		width: 30%;
+		height: 100%;
+		overflow: scroll;
+		padding-top: 60px;
+		padding-bottom: 60px;
 	 	float: right;
-  	margin-right: 40px;
+  	h1 {
+  		color: $accent;
+  	}
 	}
 	.locations {
 		overflow: scroll;
 		h2 {
 			color: $accent;
+			margin-right: 50px;
 		}
 		.location {
 			margin: 20px;
@@ -351,38 +401,44 @@ header.fixed {
 		}
 	}
 	@media(max-width: $break-large) {
+		#map {
+			width: 55%;
+		}
 		.location-container {
-			margin-right: 0;
+			width: 40%;
 		}
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	@media (max-width: $break-small) {
 		#map {
-			float: none;
-			width: 100%;
-			height: 50%;
-			.leaflet-control-zoom {
-				margin-top: 100px;
-			}			
+			display: none;		
 		}
 		.location-container {
+			width: 100%;
 			float: none;
 			margin: 0;
 			text-align: center;
 			padding-top: 80px;
+			h1 {
+				font-size: 70px;
+			}
 		}
 		.locations {
-			overflow: scroll;
+			width: 80%;
 			margin: 0 auto;
 			h2 {
 				color: $accent;
-				font-size: 30px;
+				font-size: 60px;
 			}
 			.location {
 				margin: 20px;
 				float: none;
 				display: inline-block;
 				span {
+					font-size: 30px;
 					display: block;
+				}
+				h4 {
+					font-size: 30px;
 				}
 				p {
 				  line-height: 1.3;
@@ -497,14 +553,16 @@ header.fixed {
 			line-height: 1;
 		}
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	@media (max-width: $break-small) {
+		.slick-next::before, 
+		.slick-prev::before {
+		  font-size: 180px;
+		}
 		.panel {
 			.quest {
 				font-size: 30px;
 			}
 			.answer {
-				opacity: 1;
-				top: 30%;
 				p {
 					font-size: 40px;
 				}
@@ -553,7 +611,7 @@ header.fixed {
 				display: inline-block;
 			}
 			input[name="zip"] {
-				margin-left: 54px;
+				margin-left: 60px;
 			}
 		}
 		.cleared {
@@ -571,42 +629,50 @@ header.fixed {
 			font-weight: bolder;
 		}
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
+	@media (max-width: $break-small) {
 		text-align: center;
 		h2 {
 			font-size: 45px;
-			margin-bottom: -10px; margin-top: 150px;
+			margin-bottom: -10px; 
+			margin-top: 150px;
 		}
 		p {
 			font-size: 25px;
 			width: 80%;
 			margin: 50px auto;
 			line-height: 1.5;
-			margin-bottom: -2px;
+			
 		}
 		form {
 			.left, 
-			.right,
-			input[type="submit"] {
+			.right {
 				font-size: 30px;
-				margin: 0 auto;
-				float: none;
-				text-align: center;
-				width: 60%;
-				input,
-				input[name="zip"],
-				input[name="state"] {
-					width: 100%;
+				width: 50%;
+				input, 
+				input[name="zip"], 
+				input[name="state"]{
+					width: 80%;
 					margin: 20px auto;
 					height: 70px;
-				}
+				}			
+			}
+			input[type="submit"] {
+				float: none;
+				margin: 0 auto;
+				width: 30%;
+				font-size: 30px;
+			}
+			input[name="zip"], 
+			input[name="state"] {
+				display: block
 			}
 			.cleared {
-				clear: none;
 				font-size: 30px;
+				text-align: right;
 				textarea {
-					width: 60%;
-					margin: 10px auto;
+					width: 95%;
+					margin: 20px auto;
+					height: 150px;
 				}
 			}
 		}
@@ -642,8 +708,7 @@ header.fixed {
 			width: 60px;
 		}
 	}
-	@media (max-width: $break-medium) and (min-height: 500px) {
-		height: 80%;
+	@media (max-width: $break-small) {
 		padding-top: 450px;
 		h2 {
 			font-size: 40px;
