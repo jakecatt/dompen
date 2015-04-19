@@ -78,12 +78,20 @@ $(document).ready(function(){
 		myLayer.setGeoJSON(geoJson);		
 	}
 
-  // Carousel and responsive js
+  // Setting the number of slides shown in the carousel depending on screen size 
+  // setting various heights and widths depending on screen size
   $('.panel').css({
     'height': $('.faq').height()/2 + "px"
   })
 
+  if ($(document).width() > 1400) {
+    $('li.left-header').css({
+      "margin-left": "3em"
+    })
+  }
+
   if ($(document).width() < 1000) {
+    //show to slides in carousel when screen is smaller
     slidesToShow = 2;
     $('.answer').addClass('show');
     $('video').hide();
@@ -95,6 +103,7 @@ $(document).ready(function(){
       height: $(window).height() / 2 + "px"
     })
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
+    //show to slides in carousel when screen is medium
     slidesToShow = 3;
     $('video').hide();
     $('.home').addClass('small');    
@@ -105,6 +114,7 @@ $(document).ready(function(){
       height: $(window).height() / 2 + "px"
     })    
   } else{
+    // activate parallx when screen is reg sized or large
     $('.parallax').addClass('active');
     $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
       height: $(window).height() + "px"
