@@ -79,7 +79,7 @@ header {
       display: table; }
     header ul.left-header li {
       float: left;
-      margin-right: 5em; }
+      margin-right: 3em; }
   header .right-header {
     position: absolute;
     right: 0;

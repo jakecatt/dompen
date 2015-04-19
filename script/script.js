@@ -16,7 +16,7 @@ $(document).ready(function(){
 		console.log(target)
     $('html, body').stop().animate({
     	scrollTop: target.offset().top
-    }, 2000);
+    }, 1000);
 	})
 
 	//display locations stored in the locations.js file
