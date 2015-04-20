@@ -1,68 +1,26 @@
 var locations = [
 	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
+		name: 'Sylmar Caregivers Inc.',
+		streetAddress: '10919 W. Randall St. Unit 1',
+		city: 'Sun Valley',
 		state: 'CA',
-		zip: '92756',
+		zip: '91352',
 		area: 'los-angeles'
 	},
 	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
+		name: '420 Friendly Delivery',
+		streetAddress: '1545 La Cienega Blvd.',
+		city: 'Los Angeles',
 		state: 'CA',
-		zip: '92756',
-		area: 'san-jose'
-	},
-	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
-		state: 'CA',
-		zip: '92756',
+		zip: '90035',
 		area: 'los-angeles'
 	},
 	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
+		name: 'Pot Spot Collective',
+		streetAddress: '900 S Westmoreland Ave.',
 		city: 'Tarzana',
 		state: 'CA',
-		zip: '92756',
-		area: 'san-jose',
-		geocode: '21345 Ventura Blvd Tarzana CA 92756'
-	}	,
-	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
-		state: 'CA',
-		zip: '92756',
+		zip: '90006',
 		area: 'los-angeles'
-	},
-	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
-		state: 'CA',
-		zip: '92756',
-		area: 'san-jose'
-	},
-	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
-		state: 'CA',
-		zip: '92756',
-		area: 'los-angeles'
-	},
-	{
-		name: 'D.G.R. Collective',
-		streetAddress: '21345 Ventura Blvd',
-		city: 'Tarzana',
-		state: 'CA',
-		zip: '92756',
-		area: 'san-jose',
-		geocode: '21345 Ventura Blvd Tarzana CA 92756'
-	}			
+	}
 ]

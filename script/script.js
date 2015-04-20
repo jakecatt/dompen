@@ -50,8 +50,8 @@ $(document).ready(function(){
 
 	function showMarkers() {
 		//when you will have multiple locations uncomment line 43 and delete line 44
-		// for (var i = 0; i < locations.length; i++) {
-		for (var i = 0; i < 1; i++) {
+		for (var i = 0; i < locations.length; i++) {
+		// for (var i = 0; i < 1; i++) {
 			var location = locations[i];
 			geocoder.query(location.area, renderMarkers)
 		}
@@ -114,7 +114,7 @@ $(document).ready(function(){
     })
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
-    slidesToShow = 3;
+    slidesToShow = 2;
     $('video').hide();
     $('.home').addClass('small');    
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
@@ -149,7 +149,7 @@ $('.responsive').slick({
   slidesToScroll: 4,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1040,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -158,14 +158,14 @@ $('.responsive').slick({
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 880,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 530,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1

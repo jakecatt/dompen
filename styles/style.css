@@ -307,6 +307,7 @@ header.fixed {
         width: 100%;
         margin: 0 auto; } }
 
+
 .find-us {
   background: #595959;
   text-align: center;
@@ -356,15 +357,9 @@ header.fixed {
       width: 40%; } }
   @media (max-width: 1000px) {
     .find-us #map {
-      display: none; }
-    .find-us .location-container {
-      width: 100%;
-      float: none;
-      margin: 0;
-      text-align: center;
-      padding-top: 80px; }
-      .find-us .location-container h1 {
-        font-size: 70px; }
+      width: 100%}
+    
+     
     .find-us .locations {
       width: 80%;
       margin: 0 auto; }
@@ -495,12 +490,16 @@ header.fixed {
   @media (max-width: 1000px) {
     .faq .slick-next::before,
     .faq .slick-prev::before {
-      font-size: 180px; }
+      font-size: 65px; 
+      opacity: 40%;
+    }
     .faq .panel .quest {
-      font-size: 30px; }
+      font-size: 20px; }
     .faq .panel .answer p {
-      font-size: 40px; } }
-
+      font-size: 17px; } }
+.contact h2{
+  margin-top: -10;
+}
 .contact {
   padding: 50px;
   background: url("../images/main.jpg") no-repeat;
