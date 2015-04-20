@@ -324,15 +324,19 @@ header.fixed {
     padding-bottom: 60px;
     float: right; }
     .find-us .location-container h1 {
-      color: #8FD74B; }
+      color: #8FD74B; 
+    }
   .find-us .locations {
     overflow: scroll; }
     .find-us .locations h2 {
       color: #8FD74B;
       margin-right: 50px; }
     .find-us .locations .location {
-      margin: 20px;
-      float: left; }
+      float: center;
+      margin-left: -44px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+       }
       .find-us .locations .location span {
         display: block; }
       .find-us .locations .location p {
