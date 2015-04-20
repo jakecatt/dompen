@@ -24,9 +24,7 @@ $(document).ready(function(){
 
   //MAPBOX setup
   L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
-  var map = L.mapbox.map('map', 'pam-.d97b92e0', {
-
-  })
+  var map = L.mapbox.map('map', 'pam-.d97b92e0', {})
 
 
 
@@ -50,24 +48,30 @@ $(document).ready(function(){
   }
   
   function showMarkers() {
-    //when you will have multiple locations uncomment line 43 and delete line 44
     for (var i = 0; i < locations.length; i++) {
-
-    // for (var i = 0; i < 1; i++) {
       var location = locations[i];
-console.log("locations[i]", location);
-      geocoder.query(location.area, renderMarkers)
+      var address = location.streetAddress.replace(/ /g, '+');
+      if (address.length > 1) { 
+        var geocodeUrl = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/'+ address +'.json?access_token=pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww'
+        $.ajax({
+          type: "GET",
+          url: geocodeUrl,
+          success: function(result) {
+            for (var i = 0; i < result.features.length; i++) {
+              var coords = result.features[i]
+              renderMarkers(coords)
+            };
+          }
+        })
+      }
     }
   }
 
 
-  function renderMarkers(err, data) {
-
-    console.log("data", data);
-    
+  function renderMarkers(data) {
     var myLayer = L.mapbox.featureLayer().addTo(map);
-    var lat = latLng(data.lbounds)[0]
-    var lng = latLng(data.lbounds)[1]
+    var lat = data.center[1]
+    var lng = data.center[0]
     var geoJson = [{
       "type": "Feature",
       "geometry": {
@@ -143,13 +147,6 @@ console.log("locations[i]", location);
     slidesToShow = 4;
   };
 
-  // $('.carousel').slick({
-  //   slidesToShow: slidesToShow,
-  //   slidesToScroll: 2
-  // });
-
-
-
 $('.responsive').slick({
   dots: true,
   infinite: false,
@@ -186,9 +183,6 @@ $('.responsive').slick({
     ]
   });
 
-
-
-
 });
 
 
@@ -220,6 +214,3 @@ function findTarget(element) {
   var name = element.attr('href').replace(/#/, '');
   return $('a[name="' + name + '"]')
 }
-
-
-;

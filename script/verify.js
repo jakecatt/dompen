@@ -1,4 +1,5 @@
-$('.yes').on("click", function(){
+$('.yes').on("click", function(e){
+  e.preventDefault();
 document.cookie = "verified=true"
 window.location.replace("./index.html");
 });
