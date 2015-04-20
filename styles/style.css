@@ -495,7 +495,7 @@ header.fixed {
   @media (max-width: 1000px) {
     .faq .slick-next::before,
     .faq .slick-prev::before {
-      font-size: 180px; }
+      font-size: 30px; }
     .faq .panel .quest {
       font-size: 30px; }
     .faq .panel .answer p {
@@ -635,5 +635,7 @@ header.fixed {
         display: none;
       }
       }
+
+
 
 /*# sourceMappingURL=style.css.map */

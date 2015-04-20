@@ -1,32 +1,32 @@
 $(document).ready(function(){
-	//navbar and scrolling fixed position
-	$(window).scroll(function(e) {
-		var scroll = $(this).scrollTop();
-		if (scroll > 322) {
-			$('header').addClass('fixed');
-		} else {
-			$('header').removeClass('fixed');
-		}
-	});
+  //navbar and scrolling fixed position
+  $(window).scroll(function(e) {
+    var scroll = $(this).scrollTop();
+    if (scroll > 322) {
+      $('header').addClass('fixed');
+    } else {
+      $('header').removeClass('fixed');
+    }
+  });
 
-	//slow scrolling to section when clicking on navbar link
-	$('a').on('click', function(e){
-		e.preventDefault();
-		var target = findTarget($(this));
-		console.log(target)
+  //slow scrolling to section when clicking on navbar link
+  $('a').on('click', function(e){
+    e.preventDefault();
+    var target = findTarget($(this));
+    console.log(target)
     $('html, body').stop().animate({
-    	scrollTop: target.offset().top
+      scrollTop: target.offset().top
     }, 1000);
-	})
+  })
 
-	//display locations stored in the locations.js file
-	showLocationsList();
+  //display locations stored in the locations.js file
+  showLocationsList();
 
-	//MAPBOX setup
-	L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
-	var map = L.mapbox.map('map', 'pam-.d97b92e0', {
+  //MAPBOX setup
+  L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
+  var map = L.mapbox.map('map', 'pam-.d97b92e0', {
 
-        })
+  })
 
 
 
@@ -36,38 +36,44 @@ $(document).ready(function(){
   if (map.tap) map.tap.disable();
 
   var geocoder = L.mapbox.geocoder('mapbox.places')
-	geocoder.query('Los Angeles, CA', showMap);
+  geocoder.query('Los Angeles, CA', showMap);
 
-	//getting the locations from the locations.js file and rendering them
-	showMarkers();
+  //getting the locations from the locations.js file and rendering them
+  showMarkers();
 
-	function showMap(err, data) {
-	  if (data.lbounds) {
-	  	var coords = latLng(data.lbounds)	
+  function showMap(err, data) {
+    if (data.lbounds) {
+      var coords = latLng(data.lbounds)	
       map.setView(coords, 12)
-	  }
-	}
+    }
+  }
+  
+  function showMarkers() {
+    //when you will have multiple locations uncomment line 43 and delete line 44
+    for (var i = 0; i < locations.length; i++) {
 
-	function showMarkers() {
-		//when you will have multiple locations uncomment line 43 and delete line 44
-		// for (var i = 0; i < locations.length; i++) {
-		for (var i = 0; i < 1; i++) {
-			var location = locations[i];
-			geocoder.query(location.area, renderMarkers)
-		}
-	}
+    // for (var i = 0; i < 1; i++) {
+      var location = locations[i];
+console.log("locations[i]", location);
+      geocoder.query(location.area, renderMarkers)
+    }
+  }
 
-	function renderMarkers(err, data) {
-		var myLayer = L.mapbox.featureLayer().addTo(map);
-		var lat = latLng(data.lbounds)[0]
-		var lng = latLng(data.lbounds)[1]
-		var geoJson = [{
-	    "type": "Feature",
-	    "geometry": {
-	      "type": "Point",
+
+  function renderMarkers(err, data) {
+
+    console.log("data", data);
+    
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+    var lat = latLng(data.lbounds)[0]
+    var lng = latLng(data.lbounds)[1]
+    var geoJson = [{
+      "type": "Feature",
+      "geometry": {
+	"type": "Point",
         "coordinates": [lng, lat]
-	    },
-	    "properties": {
+      },
+      "properties": {
         "title": "DomPen",
         "icon": {
           "iconUrl": "images/DomPen_Icons/DomPenLogo_forMap.png", //INSERT PATH TO LOGO HERE
@@ -76,17 +82,17 @@ $(document).ready(function(){
           // "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
           "className": "dot"
         }
-    	}
-		}]
-		myLayer.on('layeradd', function(e) {
-			var marker = e.layer,
-    	feature = marker.feature;
-			marker.setIcon(L.icon(feature.properties.icon));
-		});
+      }
+    }]
+    myLayer.on('layeradd', function(e) {
+      var marker = e.layer,
+    	  feature = marker.feature;
+      marker.setIcon(L.icon(feature.properties.icon));
+    });
 
-		// Add features to the map.
-		myLayer.setGeoJSON(geoJson);		
-	}
+    // Add features to the map.
+    myLayer.setGeoJSON(geoJson);		
+  }
 
   // Setting the number of slides shown in the carousel depending on screen size 
   // setting various heights and widths depending on screen size
@@ -141,41 +147,41 @@ $(document).ready(function(){
   // });
 
 
-$('.responsive').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
+  $('.responsive').slick({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
 
 
 
@@ -184,32 +190,32 @@ $('.responsive').slick({
 
 
 function latLng(data) {
-	var lat = (data._southWest.lat + data._northEast.lat)/2;
+  var lat = (data._southWest.lat + data._northEast.lat)/2;
   var lng = (data._southWest.lng + data._northEast.lng)/2;
   return [lat, lng];
 }
 
 
 function showLocationsList() {
-	for (var i = 0; i < locations.length; i++) {
-		var location = locations[i];
-		var area = location.area;
-		$('.' + area).append(displayLocation(location.name, location.streetAddress, location.city, location.state, location.zip));
-	};
+  for (var i = 0; i < locations.length; i++) {
+    var location = locations[i];
+    var area = location.area;
+    $('.' + area).append(displayLocation(location.name, location.streetAddress, location.city, location.state, location.zip));
+  };
 }
 
 function displayLocation(name, street, city, state, zip) {
-	return '<div class="location"><h4>' 
-					+ name + '</h4><p><span class="street">'
-					+ street + '<span>'
-					+ city + ', ' 
-					+ state + ' ' + zip +
-					'</p>'
+  return '<div class="location"><h4>' 
+    + name + '</h4><p><span class="street">'
+    + street + '<span>'
+    + city + ', ' 
+    + state + ' ' + zip +
+    '</p>'
 }
 
 function findTarget(element) {
-	var name = element.attr('href').replace(/#/, '');
-	return $('a[name="' + name + '"]')
+  var name = element.attr('href').replace(/#/, '');
+  return $('a[name="' + name + '"]')
 }
 
 
