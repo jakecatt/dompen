@@ -51,19 +51,22 @@ $(document).ready(function(){
     for (var i = 0; i < locations.length; i++) {
       var location = locations[i];
       var address = location.streetAddress.replace(/ /g, '+');
+      var area = location.zip
       if (address.length > 1) { 
-        var geocodeUrl = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/'+ address +'.json?access_token=pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww'
-        $.ajax({
-          type: "GET",
-          url: geocodeUrl,
-          success: function(result) {
-            for (var i = 0; i < result.features.length; i++) {
-              var coords = result.features[i]
-              renderMarkers(coords)
-            };
-          }
-        })
+        var validAddress = address 
+      } else { 
+        validAddress = area 
       }
+      var geocodeUrl = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/'+ validAddress +'.json?access_token=pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww'
+      $.ajax({
+        type: "GET",
+        url: geocodeUrl,
+        success: function(result) {
+          console.log(result, result.features.length)
+            var coords = result.features[0]
+            renderMarkers(coords)
+        }
+      })
     }
   }
 
