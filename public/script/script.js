@@ -59,7 +59,7 @@ $(document).ready(function(){
       } else { 
         validAddress = area 
       }
-      var geocodeUrl = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/'+ validAddress +'.json?access_token=pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww'
+      var geocodeUrl = 'https://api.tiles.mapbox.com/v4/geocode/mapbox.places/'+ validAddress +'.json?access_token=pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww'
       $.ajax({
         type: "GET",
         url: geocodeUrl,
