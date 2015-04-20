@@ -50,10 +50,12 @@ $(document).ready(function(){
   function showMarkers() {
     for (var i = 0; i < locations.length; i++) {
       var location = locations[i];
+      var name = location.name;
+
       var address = location.streetAddress.replace(/ /g, '+');
-      var area = location.zip
+      var area = location.zip;
       if (address.length > 1) { 
-        var validAddress = address 
+        var validAddress = address;
       } else { 
         validAddress = area 
       }
@@ -61,20 +63,22 @@ $(document).ready(function(){
       $.ajax({
         type: "GET",
         url: geocodeUrl,
+       "name": name,
+
         success: function(result) {
-          console.log(result, result.features.length)
-            var coords = result.features[0]
-            renderMarkers(coords)
+          var coords = result.features[0]
+            renderMarkers(coords, this.name)
         }
       })
     }
   }
 
 
-  function renderMarkers(data) {
+  function renderMarkers(data, collectiveName) {
     var myLayer = L.mapbox.featureLayer().addTo(map);
     var lat = data.center[1]
     var lng = data.center[0]
+
     var geoJson = [{
       "type": "Feature",
       "geometry": {
@@ -83,7 +87,7 @@ $(document).ready(function(){
         "coordinates": [lng, lat]
       },
       "properties": {
-        "title": "DomPen",
+        "title": collectiveName +  " <br> " + data.place_name,
         "icon": {
           "iconUrl": "images/DomPen_Icons/DomPenLogo_forMap.png", //INSERT PATH TO LOGO HERE
           "iconSize": [50, 50], // size of the icon
