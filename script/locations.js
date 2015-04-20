@@ -1,4 +1,5 @@
 var locations = [
+
   {
     name: 'Sylmar Caregivers Inc.',
     streetAddress: '10919 W. Randall St. Unit 1',

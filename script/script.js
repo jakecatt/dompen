@@ -45,6 +45,7 @@ $(document).ready(function(){
     if (data.lbounds) {
       var coords = latLng(data.lbounds)	
       map.setView(coords, 12)
+
     }
   }
   
@@ -71,6 +72,7 @@ console.log("locations[i]", location);
       "type": "Feature",
       "geometry": {
 	"type": "Point",
+
         "coordinates": [lng, lat]
       },
       "properties": {
@@ -120,7 +122,7 @@ console.log("locations[i]", location);
     })
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
-    slidesToShow = 3;
+    slidesToShow = 2;
     $('video').hide();
     $('.home').addClass('small');    
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
@@ -147,36 +149,37 @@ console.log("locations[i]", location);
   // });
 
 
-  $('.responsive').slick({
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
+
+$('.responsive').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1040,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
       }
+    },
+    {
+      breakpoint: 880,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 530,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
       // instead of a settings object
