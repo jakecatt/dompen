@@ -1,3 +1,7 @@
+if (document.cookie !== "verified=true"){
+window.location.replace("./verify.html")
+}
+
 $(document).ready(function(){
 	//navbar and scrolling fixed position
 	$(window).scroll(function(e) {
