@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb {
 .parallax.active {
   height: auto;
   width: 100%;
-  background-image: url("../images/main.jpg");
+  background-image: url("../images/LA1.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -43,9 +43,9 @@ body::-webkit-scrollbar-thumb {
 
 header {
   font-family: "Comfortaa", 'Avenir', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   position: absolute;
-  top: 50%;
+  top: 46%;
   width: 100%;
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
@@ -79,46 +79,67 @@ header {
       display: table; }
     header ul.left-header li {
       float: left;
-      margin-right: 3em; }
+      margin-right: 3em; 
+      margin-top: 1%}
   header .right-header {
     position: absolute;
     right: 0;
     width: 30%;
     text-align: center; }
     header .right-header img {
-      width: 150px; }
-  @media (max-width: 1100px) {
-    header {
-      font-size: 25px; }
-      header .right-header img {
-        margin-right: -44px; }
-      header .right-header img {
-        width: 160px; }
-      header .left-header {
-        width: 60%; }
-      header ul.left-header {
-        top: -20px; }
-        header ul.left-header li {
-          margin-top: 10px;
-          margin-right: 1em; } }
+      width: 150px; 
+      margin-left: 160px}
+  
   @media (max-width: 1000px) {
     header {
-      font-size: 30px;
-      border-top: 100px solid rgba(0, 0, 0, 0.8); }
+      border-top: 60px solid rgba(0, 0, 0, 0.8); }
       header .right-angle, header .left-angle {
         display: none; }
       header .right-header img {
-        margin-top: 10px; }
+        margin-top: 50px; 
+        margin-left: 30px}
       header .right-header {
-        top: -92px; }
+        top: -60px; }
         header .right-header img {
           width: 190px; }
       header ul.left-header {
         width: 80%;
-        top: -105px; }
+        top: -64px; }
         header ul.left-header li {
           margin-top: 10px;
           margin-right: 1em; } }
+  
+  @media (max-width: 870px) {
+    header .right-header img {
+      margin-left: -30px;
+    }
+    
+  }
+  @media (max-width: 600px) {
+    header .right-header img {
+      display: none;
+    }
+    header ul .left-header {
+        width: 100%;
+    }
+    header ul.left-header li:first-child {
+      margin-left: 20%;
+    }
+
+  }
+  @media (max-width: 570px){
+    header ul.left-header li:first-child {
+      margin-left: 10%;
+    }
+  }
+  @media (max-width: 514px){
+    header ul.left-header li:first-child {
+      margin-left: -%;
+    }
+    header ul.left-header li{
+      font-size: 14px;
+    }
+  }
 
 header.fixed {
   position: fixed;
@@ -130,25 +151,30 @@ header.fixed {
     top: -65px; }
   header.fixed .right-header {
     top: -58px; }
-  @media (max-width: 1100px) {
-    header.fixed .left-header {
-      font-size: 25px;
-      top: -55px;
-      margin: 0; } }
+  
   @media (max-width: 1000px) {
-    header.fixed {
-      border-top: 100px solid rgba(0, 0, 0, 0.8); }
-      header.fixed .right-header, header.fixed .left-header {
-        top: -95px; }
-      header.fixed .right-header {
-        margin-top: 8px; }
-        header.fixed .right-header img {
-          width: 190px; }
-      header.fixed .left-header {
-        width: 80%;
-        font-size: 30px; }
-      header.fixed ul.left-header li {
-        margin-right: 1em; } }
+    header .right-header img {
+      margin-top: -6px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    header .right-header img {
+      display: none;
+    }
+    header ul .left-header {
+        width: 100%;
+    }
+    header ul.left-header li:first-child {
+      margin-left: 20%;
+    }
+  }
+
+  @media (max-width: 570px) {
+    header ul.left-header li:first-child {
+      margin-left: 10%;
+    }
+  }
 
 .home, .product, .faq, .find-us, .contact, .more-info, .faq-mobile {
   height: 100%; }
@@ -210,7 +236,12 @@ header.fixed {
       .product .panel-product .desc h2 {
         text-transform: uppercase; }
       .product .panel-product .desc .icon {
-        display: block; }
+        display: block; 
+        margin-top: 100px;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+      }
     .product .panel-product .full-desc {
       opacity: 0;
       top: 20%;
@@ -268,8 +299,10 @@ header.fixed {
         .product .panel-product .full-desc p {
           width: 70%;
           margin: 30px auto;
-          font-size: 28px;
+          font-size: 20px;
           font-weight: lighter; }
+        .long {
+          display: none; }
       .product .panel-product .panel-product-image {
         width: 100%;
         margin: 0 auto; } }
@@ -417,7 +450,8 @@ header.fixed {
     .faq .panel .quest {
       position: absolute;
       font-size: 20px;
-      top: 20px;
+      text-align: center;
+      top: 30px;
       padding: 40px;
       right: 0;
       left: 0;
@@ -437,8 +471,10 @@ header.fixed {
       -moz-transition: opacity 200ms;
       transition: opacity 200ms; }
       .faq .panel .answer p {
-        font-size: 20px;
-        font-weight: lighter; }
+        font-size: 19px;
+        font-weight: lighter; 
+        text-align: center;
+        }
     .faq .panel .panel-image {
       position: absolute;
       display: block;
@@ -483,7 +519,7 @@ header.fixed {
     content: "";
     display: table; }
   .contact h2 {
-    margin-top: 80px; }
+    margin-top: 36px; }
   .contact form::after {
     clear: both;
     content: "";
@@ -499,7 +535,7 @@ header.fixed {
     width: 50%; }
     .contact form .left input,
     .contact form .right input {
-      width: 80%; }
+      width: 95%; }
   .contact form .left {
     float: left; }
   .contact form .right {
@@ -507,10 +543,10 @@ header.fixed {
     text-align: right; }
     .contact form .right input[name="zip"],
     .contact form .right input[name="state"] {
-      width: 35%;
+      width: 46%;
       display: inline-block; }
     .contact form .right input[name="zip"] {
-      margin-left: 60px; }
+      margin-left: 2%; }
   .contact form .cleared {
     clear: both;
     width: 100%; }
@@ -526,27 +562,24 @@ header.fixed {
     .contact {
       text-align: center; }
       .contact h2 {
-        font-size: 45px;
+        font-size: 40px;
         margin-bottom: -10px;
-        margin-top: 150px; }
+        margin-top: -20px; }
       .contact p {
-        font-size: 25px;
+        font-size: 20px;
         width: 80%;
-        margin: 50px auto;
+        margin: 30px auto;
         line-height: 1.5; }
       .contact form .left,
       .contact form .right {
-        font-size: 30px;
+        font-size: 20px;
         width: 50%; }
-        .contact form .left input,
-        .contact form .left input[name="zip"],
-        .contact form .left input[name="state"],
-        .contact form .right input,
-        .contact form .right input[name="zip"],
-        .contact form .right input[name="state"] {
-          width: 80%;
-          margin: 20px auto;
-          height: 70px; }
+        .contact form .right input[name="zip"]{
+
+        }
+        .contact form .right input[name="state"]{
+          margin: 0 auto;
+        } 
       .contact form input[type="submit"] {
         float: none;
         margin: 0 auto;
@@ -558,14 +591,16 @@ header.fixed {
       .contact form .cleared {
         font-size: 30px;
         text-align: right; }
-        .contact form .cleared textarea {
-          width: 95%;
-          margin: 20px auto;
-          height: 150px; } }
+      .contact form .cleared textarea {
+          display: none;
+          } 
+      }
+    
+    
 
 .more-info {
   padding: 50px;
-  background: url(../images/main.jpg) no-repeat;
+  background: url(../images/LA3.jpg) no-repeat;
   background-size: cover; }
   .more-info span {
     color: #8FD74B;
@@ -585,10 +620,20 @@ header.fixed {
     width: 60px; }
   @media (max-width: 1000px) {
     .more-info {
-      padding-top: 450px; }
+      padding-top: 100px; }
       .more-info h2 {
-        font-size: 40px; }
+        text-align: center;
+        font-size: 32px; }
       .more-info p {
-        font-size: 35px; } }
+        margin-left: 15%;
+        text-align: center;
+        font-size: 18px; } 
+      .social a img{
+        margin: 0 auto;
+      }
+      .social a{
+        display: none;
+      }
+      }
 
 /*# sourceMappingURL=style.css.map */
