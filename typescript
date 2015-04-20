@@ -111,4 +111,22 @@ To https://github.com/pam-/dompen.git
    cefd5a7..160c8a8  master -> master
 %                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m open index.html
 %                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mopen verify.html
+%                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mgit add .
+%                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mgit commit -m "try again"
+[master b0e3134] try again
+ 3 files changed, 141 insertions(+)
+ create mode 100644 script/verify.js
+ create mode 100644 typescript
+ create mode 100644 verify.html
+%                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mgit push origin master
+Counting objects: 6, done.
+Delta compression using up to 8 threads.
+Compressing objects:  16% (1/6)   Compressing objects:  33% (2/6)   Compressing objects:  50% (3/6)   Compressing objects:  66% (4/6)   Compressing objects:  83% (5/6)   Compressing objects: 100% (6/6)   Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 2.81 KiB | 0 bytes/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To https://github.com/pam-/dompen.git
+   160c8a8..b0e3134  master -> master
+%                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mls
+images		index.html	script		slick		styles		typescript	verify.html	video
+%                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00mgit add -A
 %                                                                                                                                                                  ]7;file:///Users/admin/code/dompen[01;32m➜ [01;32m [36mdompen [01;34mgit:([31mmaster[34m) [33m✗[00m[00m[01;34m [00m
