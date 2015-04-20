@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pam-/dompen/issues"
   },
-  "homepage": "https://github.com/pam-/dompen"
+  "homepage": "https://github.com/pam-/dompen",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
