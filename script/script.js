@@ -24,7 +24,17 @@ $(document).ready(function(){
 
 	//MAPBOX setup
 	L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
-	var map = L.mapbox.map('map', 'pam-.d97b92e0')
+	var map = L.mapbox.map('map', 'pam-.d97b92e0', {
+
+        })
+
+
+
+  map.scrollWheelZoom.disable();
+
+  // Disable tap handler, if present.
+  if (map.tap) map.tap.disable();
+
   var geocoder = L.mapbox.geocoder('mapbox.places')
 	geocoder.query('Los Angeles, CA', showMap);
 
