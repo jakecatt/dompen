@@ -225,9 +225,10 @@ function findTarget(element) {
 
 $(".signup").on("submit", function(e){
 e.preventDefault();
+      $('.signup').append("<p>Thank you!</p>")
+  if (  $('.email').val() !== undefined ){
 
-console.log("email.val", $('.email').val());
-  $.ajax({ 
+         $.ajax({ 
     url: '/signup',
     type: 'POST',
     data:{"email": $('.email').val(),
@@ -242,11 +243,20 @@ console.log("email.val", $('.email').val());
           "zip":  $('.zip').val(),
           "comment":  $('.comment').val(),
           },
-    success: function(data){
-   console.log("success")
-    }
-    , error: function(jqXHR, textStatus, err){
+
+     error: function(jqXHR, textStatus, err){
       console.log("FAILURE.")
     }
   })
+// goes here
+.done( function(data){
+console.log("FOOBAR")
+    
+
+    })
+}
+else {
+
+}
+
 });
