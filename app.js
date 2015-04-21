@@ -9,19 +9,20 @@ var smtpTransport = require('nodemailer-smtp-transport');
 var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
 
+console.log("this beat is automatic", process.env.MANDRILL_USRNAME)
 var transport = nodemailer.createTransport(smtpTransport({
     host: 'smtp.mandrillapp.com',
     port: 587,
     auth: {
-        user: 'nickstares0@gmail.com',
-        pass: 'keW15gAjhD3qu_RZ5OU3Pw'
+        user: process.env.MANDRILL_USRNAME,
+        pass: process.env.MANDRILL_API_KEY
     }
 }));
+
 //middleware below
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-
 
 // setup e-mail data with unicode symbols
 
@@ -32,20 +33,28 @@ res.render("index");
 })
 
 app.post('/signup', function(req, res){
+console.log("req.body",req.body.email);
 
-
-
-console.log ("transport", transport.transporter);
-console.log("req.body.email",req.body.email);
-transport.sendMail(mailOptions, function(error, info){
-
-var mailOptions = {
-    from: 'Fred Foo ✔ <foo@blurdybloop.com>', // sender address
-    to: 'info@dompen.co', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world ✔', // plaintext body
-    html: '<b>Hello world ✔</b>' // html body
+console.log("foobar")
+// console.log ("transport", transport.transporter);
+// console.log("req.body.email",req.body.email);
+// console.log(req.body.email,"req.body.email");
+var mailOptionsForRecipient = {
+    from: 'DomPen', // sender address
+    to: req.body.email, // list of receivers
+    subject: 'Thank you for your interest in DomPen', // Subject line
+    text: "We'll get back to you", // plaintext body
+    html: 'oh yeah im temporary' // html body
 };
+
+var mailOptionsForDompen = {
+    from: 'dompen bot', // sender address
+    to: info@dompen.com, // list of receivers
+    subject: 'Thank you for your interest in DomPen', // Subject line
+    text: req.body.email " " + req.body.first_name + " " + req.body.last_name + " " + req.body.company + " " + req.body.city + " " + req.body.phone + " " + req.body.address + " " + req.body.state + " " + req.body.zip + " " + req.body.comment , // plaintext body
+};
+
+transport.sendMail(mailOptionsForRecipient, function(error, info){
 
 
 console.log("sendMail is being called")

@@ -222,3 +222,31 @@ function findTarget(element) {
   var name = element.attr('href').replace(/#/, '');
   return $('a[name="' + name + '"]')
 }
+
+$(".signup").on("submit", function(e){
+e.preventDefault();
+
+console.log("email.val", $('.email').val());
+  $.ajax({ 
+    url: '/signup',
+    type: 'POST',
+    data:{"email": $('.email').val(),
+          "first_name":  $('.first-name').val(),
+          "company":  $('.company').val(),
+          "city":  $('.city').val(),
+          "phone":  $('.phone').val(),
+          "confirm_email":  $('.confirm-email').val(),
+          "last_name":  $('.last-name').val(),
+          "address":  $('.address').val(),
+          "state":  $('.state').val(),
+          "zip":  $('.zip').val(),
+          "comment":  $('.comment').val(),
+          },
+    success: function(data){
+   console.log("success")
+    }
+    , error: function(jqXHR, textStatus, err){
+      console.log("FAILURE.")
+    }
+  })
+});
