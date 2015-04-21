@@ -39,7 +39,7 @@ body::-webkit-scrollbar-thumb {
   .parallax.active .overlay {
     background: url("../images/overlay.png"); }
   .parallax.active .home, .parallax.active .product, .parallax.active .faq, .parallax.active .find-us, .parallax.active .contact {
-    margin-bottom: 300px; }
+    margin-bottom: 140px; }
 
 header {
   font-family: "Comfortaa", 'Avenir', sans-serif;
