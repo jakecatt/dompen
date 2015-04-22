@@ -1,11 +1,23 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:i&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Lato:i&subset=latin,latin-ext);
 
 body {
   font-family: 'Lato', 'sans-serif';
   font-weight: lighter;
-  background-image: url("images/bambambam.jpg");
+  margin: 0;
+  padding: 0;
+  height: 100%;
 
 }
+
+#background{
+  background: #000000 url(images/LA1.jpg) no-repeat bottom left;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    height: auto !important;
+    min-height:100%;
+}
+
 p{
 	padding-top: 180px;
 	margin-bottom: -15px;
