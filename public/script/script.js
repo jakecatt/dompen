@@ -31,7 +31,8 @@ $(document).ready(function(){
   map.scrollWheelZoom.disable();
 
   // Disable tap handler, if present.
-  if (map.tap) map.tap.disable();
+  if (map.tap) {map.tap.disable()};
+
 
   var geocoder = L.mapbox.geocoder('mapbox.places')
   geocoder.query('Los Angeles, CA', showMap);
