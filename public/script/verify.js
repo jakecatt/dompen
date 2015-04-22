@@ -1,7 +1,7 @@
 $('.yes').on("click", function(e){
   e.preventDefault();
 document.cookie = "verified=true"
-window.location.replace("./index.html");
+window.location.replace("/");
 });
 
 $('.no').on("click", function(){

@@ -7,7 +7,9 @@ var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser')
 var transport = nodemailer.createTransport(smtpTransport({
+
   host: 'smtp.mandrillapp.com',
   port: 587,
   auth: {
@@ -20,14 +22,21 @@ var transport = nodemailer.createTransport(smtpTransport({
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(cookieParser())
 
-// setup e-mail data with unicode symbols
 
-// send mail with defined transport object
 app.get('/', function(req, res){
-
+if (req.cookies.verified === "true"){
   res.render("index");
+}
+else{
+res.redirect('/verify')
+}
 })
+
+app.get('/verify', function(req, res){
+res.render("verify")
+});
 
 app.post('/signup', function(req, res){
   console.log("req.body",req.body.email);

@@ -233,6 +233,16 @@ function findTarget(element) {
 $(".signup").on("submit", function(e){
 e.preventDefault()
   $('.s-submit').attr("class", "green-submit").val("Thanks!")
+  $('.email').val("")
+  $('.first-name').val("")
+  $('.company').val("")
+  $('.city').val("")
+  $('.phone').val("")
+  $('.confirm-email').val("")
+  $('.address').val("")
+  $('.state').val("")
+  $('.zip').val("")
+  $('.comment').val("")
   if (  $('.email').val() !== undefined ){
     
          $.ajax({ 
