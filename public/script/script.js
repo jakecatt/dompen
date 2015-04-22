@@ -26,12 +26,17 @@ $(document).ready(function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
   var map = L.mapbox.map('map', 'pam-.d97b92e0', {})
 
-
+  if ($(document).width() < 600) {
+    map.dragging.disable();
+    })
+  }
 
   map.scrollWheelZoom.disable();
 
-  // Disable tap handler, if present.
-  if (map.tap) {map.tap.disable()};
+ 
+  if (map.tap) {
+    map.tap.disable();
+  }
 
 
   var geocoder = L.mapbox.geocoder('mapbox.places')
@@ -141,7 +146,7 @@ $(document).ready(function(){
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
     slidesToShow = 2;
-    $('video').hide();
+    // $('video').hide();
     $('.home').addClass('small');    
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"

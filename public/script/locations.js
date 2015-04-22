@@ -28,6 +28,16 @@ var locations = [
     zip: '90006',
     area: 'los-angeles',
     phone: '213-381-9991'
+  },
+
+  {
+    name: 'Cloneville (CCSC)',
+    streetAddress: '11422 1/2 Moorpark St',
+    city: 'Studio City',
+    state: 'CA',
+    zip: '91604',
+    area: 'los-angeles',
+    phone: '818-627-6874'
   }
 
 
