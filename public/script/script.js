@@ -113,6 +113,12 @@ $(document).ready(function(){
     'height': $('.faq').height()/2 + "px"
   })
 
+  if ($(document).width() > 514) {
+    $('li.left-header').css({
+      "margin-left": "3em"
+    })
+  }
+
   if ($(document).width() > 1400) {
     $('li.left-header').css({
       "margin-left": "3em"
@@ -123,7 +129,7 @@ $(document).ready(function(){
     //show to slides in carousel when screen is smaller
     slidesToShow = 2;
     $('.answer').addClass('show');
-    $('video').hide();
+    // $('video').hide();
     $('.home').addClass('small');
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"
