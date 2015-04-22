@@ -28,7 +28,7 @@ $(document).ready(function(){
 
   if ($(document).width() < 600) {
     map.dragging.disable();
-    })
+    }
   }
 
   map.scrollWheelZoom.disable();
