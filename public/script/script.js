@@ -42,7 +42,7 @@ $(document).ready(function(){
   function showMap(err, data) {
     if (data.lbounds) {
       var coords = latLng(data.lbounds)	
-      map.setView(coords, 12)
+      map.setView(coords, 10)
 
     }
   }
@@ -51,9 +51,9 @@ $(document).ready(function(){
     for (var i = 0; i < locations.length; i++) {
       var location = locations[i];
       var name = location.name;
-
       var address = location.streetAddress.replace(/ /g, '+');
       var area = location.zip;
+      var phone = location.phone;
       if (address.length > 1) { 
         var validAddress = address;
       } else { 
@@ -64,17 +64,17 @@ $(document).ready(function(){
         type: "GET",
         url: geocodeUrl,
        "name": name,
-
+        "phone": phone,
         success: function(result) {
           var coords = result.features[0]
-            renderMarkers(coords, this.name)
+            renderMarkers(coords, this.name, this.phone)
         }
       })
     }
   }
 
 
-  function renderMarkers(data, collectiveName) {
+  function renderMarkers(data, collectiveName, phoneNumber) {
     var myLayer = L.mapbox.featureLayer().addTo(map);
     var lat = data.center[1]
     var lng = data.center[0]
@@ -87,7 +87,7 @@ $(document).ready(function(){
         "coordinates": [lng, lat]
       },
       "properties": {
-        "title": collectiveName +  " <br> " + data.place_name,
+        "title": collectiveName +  " <br> " + data.place_name + "<br>" + phoneNumber,
         "icon": {
           "iconUrl": "images/DomPen_Icons/DomPenLogo_forMap.png", //INSERT PATH TO LOGO HERE
           "iconSize": [50, 50], // size of the icon
@@ -211,16 +211,17 @@ function showLocationsList() {
   for (var i = 0; i < locations.length; i++) {
     var location = locations[i];
     var area = location.area;
-    $('.' + area).append(displayLocation(location.name, location.streetAddress, location.city, location.state, location.zip));
+    $('.' + area).append(displayLocation(location.name, location.streetAddress, location.city, location.state, location.zip, location.phone));
   };
 }
 
-function displayLocation(name, street, city, state, zip) {
+function displayLocation(name, street, city, state, zip, phone) {
   return '<div class="location"><h4>' 
     + name + '</h4><p><span class="street">'
     + street + '<span>'
     + city + ', ' 
     + state + ' ' + zip +
+    ' ' + '<br>' + phone
     '</p>'
 }
 
@@ -230,10 +231,10 @@ function findTarget(element) {
 }
 
 $(".signup").on("submit", function(e){
-e.preventDefault();
-      $('.signup').append("<p>Thank you!</p>")
+e.preventDefault()
+  $('.s-submit').attr("class", "green-submit").val("Thanks!")
   if (  $('.email').val() !== undefined ){
-
+    
          $.ajax({ 
     url: '/signup',
     type: 'POST',
@@ -256,7 +257,7 @@ e.preventDefault();
   })
 // goes here
 .done( function(data){
-console.log("FOOBAR")
+
     
 
     })
