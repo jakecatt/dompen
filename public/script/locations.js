@@ -32,7 +32,7 @@ var locations = [
 
   {
     name: 'Cloneville (CCSC)',
-    streetAddress: '11422 1/2 Moorpark St',
+    streetAddress: '11422 Moorpark St',
     city: 'Studio City',
     state: 'CA',
     zip: '91604',
