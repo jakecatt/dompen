@@ -172,9 +172,9 @@ $(document).ready(function(){
       height: $(window).height() / 2 - 60 + "px"
     })    
   } else{
-    // activate parallx when screen is reg sized or large
+    // activate parallax when screen is reg sized or large
     $('.parallax').addClass('active');
-    $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+    $('.product, .product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
       height: $(window).height() - 60 + "px"
     })
     $('.faq.parallax-layer .column .panel').css({
