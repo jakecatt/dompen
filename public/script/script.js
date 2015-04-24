@@ -253,18 +253,6 @@ $(".signup").on("submit", function(e){
   if (  $('.email').val() !== "" ){
 //make sure that the two emails match
     if ($('.email').val() === $(".confirm-email").val() ){
-      $('.s-submit').attr("class", "green-submit").val("Thanks!")
-      //clear all of the fields
-      $('.email').val("")
-      $('.first-name').val("")
-      $('.company').val("")
-      $('.city').val("")
-      $('.phone').val("")
-      $('.confirm-email').val("")
-      $('.address').val("")
-      $('.state').val("")
-      $('.zip').val("")
-      $('.comment').val("")
       
       $.ajax({ 
         url: '/signup',
@@ -288,9 +276,23 @@ $(".signup").on("submit", function(e){
       })
       // goes here
         .done( function(data){
-          
-
+      
         })
+
+      $('.s-submit').attr("class", "green-submit").val("Thanks!")
+      //clear all of the fields
+      $('.email').val("")
+      $('.first-name').val("")
+      $('.last-name').val("")
+      $('.company').val("")
+      $('.city').val("")
+      $('.phone').val("")
+      $('.confirm-email').val("")
+      $('.address').val("")
+      $('.state').val("")
+      $('.zip').val("")
+      $('.comment').val("")    
+
     }
     else {
       console.log("emails don't match")
