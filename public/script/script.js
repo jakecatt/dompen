@@ -131,6 +131,11 @@ $(document).ready(function(){
     })
   }
 
+  // if ($(document).width() < 514) {
+  //   $('#bgvid').hide;
+    
+  // }
+
   if ($(document).width() > 1400) {
     $('li.left-header').css({
       "margin-left": "3em"
