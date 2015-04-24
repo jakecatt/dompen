@@ -141,6 +141,7 @@ $(document).ready(function(){
     //show to slides in carousel when screen is smaller
     slidesToShow = 2;
     $('.answer').addClass('show');
+    // $('video').hide();
     $('.home').addClass('small');
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"
@@ -151,6 +152,7 @@ $(document).ready(function(){
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
     slidesToShow = 2;
+    // $('video').hide();
     $('.home').addClass('small');    
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"
@@ -161,7 +163,7 @@ $(document).ready(function(){
   } else{
     // activate parallx when screen is reg sized or large
     $('.parallax').addClass('active');
-    $('.home.parallax-layer, .product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+    $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
       height: $(window).height() + "px"
     })
     $('.faq.parallax-layer .column .panel').css({
@@ -218,7 +220,7 @@ function latLng(data) {
   return [lat, lng];
 }
 
-
+//shows a list of the locations on the sidebar
 function showLocationsList() {
   for (var i = 0; i < locations.length; i++) {
     var location = locations[i];
@@ -243,49 +245,58 @@ function findTarget(element) {
 }
 
 $(".signup").on("submit", function(e){
+
   e.preventDefault()
-  $('.s-submit').attr("class", "green-submit").val("Thanks!")
-  $('.email').val("")
-  $('.first-name').val("")
-  $('.company').val("")
-  $('.city').val("")
-  $('.phone').val("")
-  $('.confirm-email').val("")
-  $('.address').val("")
-  $('.state').val("")
-  $('.zip').val("")
-  $('.comment').val("")
-  if (  $('.email').val() !== undefined ){
-    
-    $.ajax({ 
-      url: '/signup',
-      type: 'POST',
-      data:{"email": $('.email').val(),
-            "first_name":  $('.first-name').val(),
-            "company":  $('.company').val(),
-            "city":  $('.city').val(),
-            "phone":  $('.phone').val(),
-            "confirm_email":  $('.confirm-email').val(),
-            "last_name":  $('.last-name').val(),
-            "address":  $('.address').val(),
-            "state":  $('.state').val(),
-            "zip":  $('.zip').val(),
-            "comment":  $('.comment').val(),
-           },
+//change the button to say thank you
 
-      error: function(jqXHR, textStatus, err){
-        console.log("FAILURE.")
-      }
-    })
-    // goes here
-      .done( function(data){
+//make sure that they put something in the email
+  if (  $('.email').val() !== "" ){
+//make sure that the two emails match
+    if ($('.email').val() === $(".confirm-email").val() ){
+      $('.s-submit').attr("class", "green-submit").val("Thanks!")
+      //clear all of the fields
+      $('.email').val("")
+      $('.first-name').val("")
+      $('.company').val("")
+      $('.city').val("")
+      $('.phone').val("")
+      $('.confirm-email').val("")
+      $('.address').val("")
+      $('.state').val("")
+      $('.zip').val("")
+      $('.comment').val("")
+      
+      $.ajax({ 
+        url: '/signup',
+        type: 'POST',
+        data:{"email": $('.email').val(),
+              "first_name":  $('.first-name').val(),
+              "company":  $('.company').val(),
+              "city":  $('.city').val(),
+              "phone":  $('.phone').val(),
+              "confirm_email":  $('.confirm-email').val(),
+              "last_name":  $('.last-name').val(),
+              "address":  $('.address').val(),
+              "state":  $('.state').val(),
+              "zip":  $('.zip').val(),
+              "comment":  $('.comment').val(),
+             },
 
-        
-
+        error: function(jqXHR, textStatus, err){
+          console.log("FAILURE.")
+        }
       })
-  }
-  else {
+      // goes here
+        .done( function(data){
+          
 
+        })
+    }
+    else {
+      console.log("emails don't match")
+      //jake make sure to render something to the page if the emails don't match
+    }
   }
+
 
 });
