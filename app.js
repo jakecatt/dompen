@@ -39,7 +39,7 @@ res.render("verify")
 });
 
 app.post('/signup', function(req, res){
-  console.log("req.body",req.body.email);
+  console.log("req.body",req.body);
 if(req.body.email){
 
 
