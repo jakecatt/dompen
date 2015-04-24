@@ -15,7 +15,7 @@ $(document).ready(function(){
     var target = findTarget($(this));
     console.log(target)
     $('html, body').stop().animate({
-      scrollTop: target.offset().top
+      scrollTop: target.offset().top - 60
     }, 1000);
   })
 
@@ -131,6 +131,11 @@ $(document).ready(function(){
     })
   }
 
+  // if ($(document).width() < 514) {
+  //   $('#bgvid').hide;
+
+  // }
+
   if ($(document).width() > 1400) {
     $('li.left-header').css({
       "margin-left": "3em"
@@ -143,28 +148,34 @@ $(document).ready(function(){
     $('.answer').addClass('show');
     // $('video').hide();
     $('.home').addClass('small');
-    $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
+    $('.home').css({
       height: $(window).height() + "px"
     })
+    $('.product, .find-us, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() - 60 + "px"
+    })
     $('.faq .column .panel').css({
-      height: $(window).height() / 2 + "px"
+      height: $(window).height() / 2 - 60 + "px"
     })
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
     slidesToShow = 2;
     // $('video').hide();
     $('.home').addClass('small');    
-    $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
+    $('.home').css({
       height: $(window).height() + "px"
     })
+    $('.product, .find-us, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() - 60 + "px"
+    })
     $('.faq .column .panel').css({
-      height: $(window).height() / 2 + "px"
+      height: $(window).height() / 2 - 60 + "px"
     })    
   } else{
-    // activate parallx when screen is reg sized or large
+    // activate parallax when screen is reg sized or large
     $('.parallax').addClass('active');
-    $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
-      height: $(window).height() + "px"
+    $('.product, .product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+      height: $(window).height() - 60 + "px"
     })
     $('.faq.parallax-layer .column .panel').css({
       height: $(window).height() / 2 + "px"
@@ -182,7 +193,7 @@ $(document).ready(function(){
     slidesToScroll: 4,
     responsive: [
       {
-        breakpoint: 1040,
+        breakpoint: 1150,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -198,7 +209,7 @@ $(document).ready(function(){
         }
       },
       {
-        breakpoint: 530,
+        breakpoint: 590,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
