@@ -199,12 +199,21 @@ header.fixed {
     width: auto;
     height: auto;
     z-index: -100;
+    background: url(images/juliette.jpg) no-repeat; 
     background-size: cover; }
-   @media (max-width: 500px){ 
-    .home video#bgvid{
-      margin-left: -600px;
-    }
-   }
+ @media screen and (max-width: 1270px){
+  .home video#bgvid {
+    min-width: 1270px;
+  }
+ }
+ @media screen and (max-width: 500px){ 
+  .home{
+    background: url(images/juliette.jpg) #000 no-repeat center center fixed;
+  }
+  .home video#bgvid{
+    display: none;
+  }
+ }
 
 .product {
   width: 100%;

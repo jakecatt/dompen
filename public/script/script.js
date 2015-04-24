@@ -141,7 +141,6 @@ $(document).ready(function(){
     //show to slides in carousel when screen is smaller
     slidesToShow = 2;
     $('.answer').addClass('show');
-    // $('video').hide();
     $('.home').addClass('small');
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"
@@ -152,7 +151,6 @@ $(document).ready(function(){
   } else if ($(document).width() > 1000 && $(document).width() < 1200) {
     //show to slides in carousel when screen is medium
     slidesToShow = 2;
-    // $('video').hide();
     $('.home').addClass('small');    
     $('.home, .product, .find-us, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() + "px"
@@ -163,7 +161,7 @@ $(document).ready(function(){
   } else{
     // activate parallx when screen is reg sized or large
     $('.parallax').addClass('active');
-    $('.product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+    $('.home.parallax-layer, .product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
       height: $(window).height() + "px"
     })
     $('.faq.parallax-layer .column .panel').css({
