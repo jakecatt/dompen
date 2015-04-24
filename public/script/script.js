@@ -26,33 +26,39 @@ $(document).ready(function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoicGFtLSIsImEiOiJNT09NSzgwIn0.AWl1AY_kO1HMnFHwxb9mww';
   var map = L.mapbox.map('map', 'pam-.d97b92e0', {})
 
+
+  // if you're on mobile, make is so that you can't drag the map
   if ($(document).width() < 600) {
     map.dragging.disable();
-    }
+  }
   
-
+  //disables scrolling as zoom on the map so that when you are scrolling
+  //down the page you don't zoom in on the map
   map.scrollWheelZoom.disable();
 
- 
+
   if (map.tap) {
     map.tap.disable();
   }
 
-
+  // location where the map renders
   var geocoder = L.mapbox.geocoder('mapbox.places')
   geocoder.query('Los Angeles, CA', showMap);
 
   //getting the locations from the locations.js file and rendering them
   showMarkers();
 
+
   function showMap(err, data) {
     if (data.lbounds) {
       var coords = latLng(data.lbounds)	
+      // the second argument of setView is how far the map is zoomed in
       map.setView(coords, 10)
 
     }
   }
   
+  //loops through all of the locations in locations.js and shows the markers for each one
   function showMarkers() {
     for (var i = 0; i < locations.length; i++) {
       var location = locations[i];
@@ -69,11 +75,11 @@ $(document).ready(function(){
       $.ajax({
         type: "GET",
         url: geocodeUrl,
-       "name": name,
+        "name": name,
         "phone": phone,
         success: function(result) {
           var coords = result.features[0]
-            renderMarkers(coords, this.name, this.phone)
+          renderMarkers(coords, this.name, this.phone)
         }
       })
     }
@@ -166,36 +172,38 @@ $(document).ready(function(){
     slidesToShow = 4;
   };
 
-$('.responsive').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  responsive: [
-    {
-      breakpoint: 1040,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
+
+//slick responsive stuff. refer to slick docs
+  $('.responsive').slick({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1040,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 880,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 530,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 880,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 530,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
 
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
@@ -228,7 +236,7 @@ function displayLocation(name, street, city, state, zip, phone) {
     + city + ', ' 
     + state + ' ' + zip +
     ' ' + '<br>' + phone
-    '</p>'
+  '</p>'
 }
 
 function findTarget(element) {
@@ -237,7 +245,7 @@ function findTarget(element) {
 }
 
 $(".signup").on("submit", function(e){
-e.preventDefault()
+  e.preventDefault()
   $('.s-submit').attr("class", "green-submit").val("Thanks!")
   $('.email').val("")
   $('.first-name').val("")
@@ -251,35 +259,35 @@ e.preventDefault()
   $('.comment').val("")
   if (  $('.email').val() !== undefined ){
     
-         $.ajax({ 
-    url: '/signup',
-    type: 'POST',
-    data:{"email": $('.email').val(),
-          "first_name":  $('.first-name').val(),
-          "company":  $('.company').val(),
-          "city":  $('.city').val(),
-          "phone":  $('.phone').val(),
-          "confirm_email":  $('.confirm-email').val(),
-          "last_name":  $('.last-name').val(),
-          "address":  $('.address').val(),
-          "state":  $('.state').val(),
-          "zip":  $('.zip').val(),
-          "comment":  $('.comment').val(),
-          },
+    $.ajax({ 
+      url: '/signup',
+      type: 'POST',
+      data:{"email": $('.email').val(),
+            "first_name":  $('.first-name').val(),
+            "company":  $('.company').val(),
+            "city":  $('.city').val(),
+            "phone":  $('.phone').val(),
+            "confirm_email":  $('.confirm-email').val(),
+            "last_name":  $('.last-name').val(),
+            "address":  $('.address').val(),
+            "state":  $('.state').val(),
+            "zip":  $('.zip').val(),
+            "comment":  $('.comment').val(),
+           },
 
-     error: function(jqXHR, textStatus, err){
-      console.log("FAILURE.")
-    }
-  })
-// goes here
-.done( function(data){
-
-    
-
+      error: function(jqXHR, textStatus, err){
+        console.log("FAILURE.")
+      }
     })
-}
-else {
+    // goes here
+      .done( function(data){
 
-}
+        
+
+      })
+  }
+  else {
+
+  }
 
 });
