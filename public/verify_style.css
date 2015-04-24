@@ -11,8 +11,6 @@ body {
 
 }
 
-
-
 p{
 	padding-top: 180px;
 	margin-bottom: -15px;
@@ -23,10 +21,10 @@ p{
 	font-size: 40px;
 	text-align: center;
 }
+
 .buttons{
 	margin-left: 0%;
 }
-
 
 h1 {
   color: #55acee;
@@ -92,19 +90,19 @@ h1 {
 }
 
 #background{
-  background: #000000 url(images/LA1.jpg) no-repeat bottom left;
-    min-height: 100%;
-    min-width: 1500px;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -10000;
+  background: #000000 url(images/parallax_bg.jpg) no-repeat bottom left;
+  min-height: 100%;
+  min-width: 1500px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10000;
 }
 
 @media screen and (max-width: 1500){
   #background{
-    left: 50%;
-    margin-left: -750px;
+  left: 50%;
+  margin-left: -750px;
 }

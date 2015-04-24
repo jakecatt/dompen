@@ -4,19 +4,22 @@
 * {
   box-sizing: border-box; }
 
+/*Body, HTML*/
 body, html {
   height: 100%;
   color: #fff; }
 
 video::-webkit-media-controls {
-    display:none !important;
+  display:none !important;
 }
 
+/*Links*/
 a,
 a:visited {
   color: inherit;
   text-decoration: none; }
 
+/*Scrollbar*/
 body::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.1); }
@@ -28,23 +31,25 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.4); }
 
+/*Parallax*/
 .parallax.active {
   height: auto;
   width: 100%;
-  background-image: url("../images/LA1.jpg");
+  background-image: url("../images/parallax_bg.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover; }
-  .parallax.active::after {
-    clear: both;
-    content: "";
-    display: table; }
-  .parallax.active .overlay {
-    background: url("../images/overlay.png"); }
-  .parallax.active .home, .parallax.active .product, .parallax.active .faq, .parallax.active .find-us, .parallax.active .contact {
-    margin-bottom: 140px; }
+.parallax.active::after {
+  clear: both;
+  content: "";
+  display: table; }
+.parallax.active .overlay {
+  background: url("../images/overlay.png"); }
+.parallax.active .home, .parallax.active .product, .parallax.active .faq, .parallax.active .find-us, .parallax.active .contact {
+  margin-bottom: 140px; }
 
+/*Header*/
 header {
   font-family: "Comfortaa", 'Avenir', sans-serif;
   font-size: 17px;
@@ -93,6 +98,9 @@ header {
     header .right-header img {
       width: 150px; 
       margin-left: 160px}
+
+
+/*Responsive*/
   
   @media (max-width: 1000px) {
     header {
@@ -111,13 +119,15 @@ header {
         top: -64px; }
         header ul.left-header li {
           margin-top: 10px;
-          margin-right: 1em; } }
+          margin-right: 1em; } 
+  }
   
   @media (max-width: 870px) {
     header .right-header img {
       margin-left: -30px;
     }
   }
+
   @media (max-width: 600px) {
     header .right-header img {
       display: none;
@@ -130,21 +140,26 @@ header {
     }
 
   }
+
   @media (max-width: 570px){
     header ul.left-header li:first-child {
       margin-left: 10%;
     }
   }
+
   @media (max-width: 514px){
     header ul.left-header li{
       font-size: 14px;
     }
   }
+
   @media (max-width: 480px){
     header ul.left-header li:last-child{
       display: none;
     }
   }
+
+/*Header Fixed*/
 
 header.fixed {
   position: fixed;
@@ -156,6 +171,8 @@ header.fixed {
     top: -65px; }
   header.fixed .right-header {
     top: -58px; }
+
+/*Header Fixed Responsive*/
   
   @media (max-width: 1000px) {
     header .right-header img {
@@ -184,12 +201,15 @@ header.fixed {
     }
   }
 
+
+
 .home, .product, .faq, .find-us, .contact, .more-info, .faq-mobile {
   height: 100%; }
-  .home::after, .product::after, .faq::after, .find-us::after, .contact::after, .more-info::after, .faq-mobile::after {
-    clear: both;
-    content: "";
-    display: table; }
+
+.home::after, .product::after, .faq::after, .find-us::after, .contact::after, .more-info::after, .faq-mobile::after {
+  clear: both;
+  content: "";
+  display: table; }
 
 .home {
   overflow: hidden; }
@@ -201,15 +221,18 @@ header.fixed {
     z-index: -100;
     background: url(images/juliette.jpg) no-repeat; 
     background-size: cover; }
+ 
  @media screen and (max-width: 1270px){
   .home video#bgvid {
     min-width: 1270px;
   }
  }
+
  @media screen and (max-width: 500px){ 
   .home{
-    background: url(images/juliette.jpg) #000 no-repeat center center fixed;
+    background: url(images/home_bg.jpg) #000 no-repeat center center fixed;
   }
+
   .home video#bgvid{
     display: none;
   }
@@ -547,7 +570,7 @@ header.fixed {
 }
 .contact {
   padding: 50px;
-  background: url("../images/main.jpg") no-repeat;
+  background: url("../images/contact_bg.jpg") no-repeat;
   background-size: cover;
   /* ie */ }
   .contact ::-webkit-input-placeholder {
@@ -651,7 +674,7 @@ header.fixed {
 
 .more-info {
   padding: 50px;
-  background: url(../images/LA3.jpg) no-repeat;
+  background: url(../images/more-info_bg.jpg) no-repeat;
   background-size: cover; }
   .more-info span {
     color: #8FD74B;
