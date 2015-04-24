@@ -119,7 +119,9 @@ header {
         top: -64px; }
         header ul.left-header li {
           margin-top: 10px;
-          margin-right: 1em; } 
+          margin-right: 1em; }
+        header ul.left-header li:last-child {
+        display: none; } 
   }
   
   @media (max-width: 870px) {
