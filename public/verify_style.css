@@ -11,7 +11,7 @@ body {
 
 }
 
-p{
+{
 	padding-top: 180px;
 	margin-bottom: -15px;
 	margin-top: 100px;
@@ -89,20 +89,13 @@ h1 {
   text-align: center;
 }
 
-#background{
-  background: #000000 url(images/parallax_bg.jpg) no-repeat bottom left;
-  min-height: 100%;
-  min-width: 1500px;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -10000;
+
+
+html { 
+  background: url(images/parallax_bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-@media screen and (max-width: 1500){
-  #background{
-  left: 50%;
-  margin-left: -750px;
-}

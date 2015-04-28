@@ -9,8 +9,28 @@
     <meta name="viewport" content="width=device-width, height=device-height">
 
     <title>DomPen</title>
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script> -->
+    <!-- <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript">
+
+
+      $(document).ready(function() {
+      $(".fancybox-media").fancybox({
+      openEffect: "fade",
+content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+      helpers : {
+        overlay : {
+            css : {
+                'background' : 'rgba(0, 0,0, 0.95)'
+            }
+        }
+    }
+      });
+      });
+    </script>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body>
@@ -18,10 +38,10 @@
       <div class="left-header left-angle">
       </div>
       <ul class="left-header">
-	<li> <a href="#product"> PRODUCT </a> </li>
-	<li> <a href="#find-us"> FIND US </a></li>
-	<li> <a href="#faq"> FAQ </a></li>
-	<li> <a href="#contact"> CONTACT </a></li>
+	<li> <a class="product-link" href="#product"> PRODUCT </a> </li>
+	<li> <a class="navbar-link" href="#find-us"> FIND US </a></li>
+	<li> <a class="navbar-link" href="#faq"> FAQ </a></li>
+	<li> <a class="navbar-link" href="#contact"> CONTACT </a></li>
       </ul>
       
       <div class="right-header right-angle">
@@ -33,6 +53,12 @@
     <div class="parallax">
       <div class="overlay">
 	<section class="home parallax-layer">
+
+
+          <a href="#"class="fancybox-media">Watch The Full Video</a>
+
+
+
 	  <video autoplay loop poster="images/home_bg.jpg" id="bgvid">
 	    <source src="video/DomPenWebsiteBackNew.mp4" type="video/mp4">
 	  </video>
@@ -102,7 +128,7 @@
 	  <div class="location-container">
 	    <!-- <h1> Our Locations </h1> -->
 	    <div class="los-angeles locations">
-	      <h2 class="area"> Los Angeles </h2>
+	      <!-- <h2 class="area"> Los Angeles </h2> -->
 	    </div>
 	  </div>
 	</section>
@@ -316,7 +342,7 @@
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="script/locations.js"></script>
     <script src="script/script.js"></script>
