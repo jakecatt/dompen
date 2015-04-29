@@ -20,14 +20,14 @@
       $(document).ready(function() {
       $(".fancybox-media").fancybox({
       openEffect: "fade",
-content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+      content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title=0&byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
       helpers : {
-        overlay : {
-            css : {
-                'background' : 'rgba(0, 0,0, 0.95)'
-            }
-        }
-    }
+      overlay : {
+      css : {
+      'background' : 'rgba(0, 0,0, 0.95)'
+      }
+      }
+      }
       });
       });
     </script>
@@ -39,7 +39,7 @@ content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title
       </div>
       <ul class="left-header">
 	<li> <a class="product-link" href="#product"> PRODUCT </a> </li>
-	<li> <a class="navbar-link" href="#find-us"> FIND US </a></li>
+	<li> <a class="navbar-link" href="#info"> INFO </a></li>
 	<li> <a class="navbar-link" href="#faq"> FAQ </a></li>
 	<li> <a class="navbar-link" href="#contact"> CONTACT </a></li>
       </ul>
@@ -53,20 +53,19 @@ content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title
     <div class="parallax">
       <div class="overlay">
 	<section class="home parallax-layer">
-
-
           <a href="#"class="fancybox-media">Watch The Full Video</a>
-
-
-
 	  <video autoplay loop poster="images/home_bg.jpg" id="bgvid">
 	    <source src="video/DomPenWebsiteBackNew.mp4" type="video/mp4">
 	  </video>
 	</section>
 
-	<section class="product parallax-layer"> <a name="product"></a>
-	  <div class="panel-product">
-	    <img class="panel-product-image" src="images/product_1.jpg">
+        <section class="product parallax-layer"> <a name="product"></a>
+          <img src="images/product-pic.png">
+	</section>
+
+	<section class="info parallax-layer"> <a name="info"></a>
+	  <div class="panel-info">
+	    <img class="panel-info-image" src="images/product_1.jpg">
 	    <span class="desc"> 
 	      <span class="icon"> <img src="images/DomPen_Icons/SteamDomPen.svg"> </span> 
 	      <h2>Stealth </h2>
@@ -85,8 +84,8 @@ content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title
 	      </p>
 	    </span>
 	  </div>
-	  <div class="panel-product">
-	    <img class="panel-product-image" src="images/product_2.jpg">
+	  <div class="panel-info">
+	    <img class="panel-info-image" src="images/product_2.jpg">
 	    <span class="desc"> 
 	      <span class="icon"> <img src="images/DomPen_Icons/PlusDomPen.svg"> </span> 
 	      <h2> Health </h2> 
@@ -103,8 +102,8 @@ content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title
 	      </p>
 	    </span>
 	  </div>
-	  <div class="panel-product">
-	    <img class="panel-product-image" src="images/product_3.jpg">
+	  <div class="panel-info">
+	    <img class="panel-info-image" src="images/product_3.jpg">
 	    <span class="desc"> 
 	      <span class="icon"> <img src="images/DomPen_Icons/DropDomPen.svg"> </span> 
 	      <h2>Flavor </h2>
@@ -123,15 +122,15 @@ content: '<iframe src="https://player.vimeo.com/video/113558957?autoplay=1&title
 	  </div>	
 	</section>
 
-	<section class="find-us parallax-layer"><a name="find-us"></a>
-	  <div id="map"></div>
-	  <div class="location-container">
-	    <!-- <h1> Our Locations </h1> -->
-	    <div class="los-angeles locations">
-	      <!-- <h2 class="area"> Los Angeles </h2> -->
-	    </div>
-	  </div>
-	</section>
+	<!-- <section class="find-us parallax-layer"><a name="find-us"></a> -->
+	<!--   <div id="map"></div> -->
+	<!--   <div class="location-container"> -->
+	<!--     <\!-- <h1> Our Locations </h1> -\-> -->
+	<!--     <div class="los-angeles locations"> -->
+	<!--       <\!-- <h2 class="area"> Los Angeles </h2> -\-> -->
+	<!--     </div> -->
+	<!--   </div> -->
+	<!-- </section> -->
 	
 	<section class="faq parallax-layer"> 
 	  <a name="faq"></a>

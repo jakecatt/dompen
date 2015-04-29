@@ -16,27 +16,15 @@ console.log("FOOBAR")
   });
 
   //slow scrolling to section when clicking on navbar link
-  $('.product-link').on('click', function(e){
-console.log("navbar link is being clicked" )
+
+$('a').on('click', function(e){
     e.preventDefault();
     var target = findTarget($(this));
-
-
     console.log(target)
-
-    target[0].scrollIntoView({block: "start", behavior: "smooth"})
-  })
-
-  $('.navbar-link').on('click', function(e){
-    console.log("navbar link is being clicked" )
-    var target = findTarget($(this));
-
-
     $('html, body').stop().animate({
-       scrollTop: target.offset().top - 60
+      scrollTop: target.offset().top - 60
     }, 1000);
   })
-
 // START MAPBOX ======================================
 
   //display locations stored in the locations.js file
@@ -173,7 +161,7 @@ console.log("navbar link is being clicked" )
     $('.home').css({
       height: $(window).height() + "px"
     })
-    $('.product, .find-us, .faq, .contact, .more-info .faq .column').css({
+    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() - 60 + "px"
     })
     $('.faq .column .panel').css({
@@ -187,7 +175,7 @@ console.log("navbar link is being clicked" )
     $('.home').css({
       height: $(window).height() + "px"
     })
-    $('.product, .find-us, .faq, .contact, .more-info .faq .column').css({
+    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() - 60 + "px"
     })
     $('.faq .column .panel').css({
@@ -195,8 +183,8 @@ console.log("navbar link is being clicked" )
     })    
   } else{
     // activate parallax when screen is reg sized or large
-    $('.parallax').addClass('active');
-    $('.product, .product.parallax-layer, .faq.parallax-layer, .faq.parallax-layer .column, .find-us.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
+
+    $('.product, .product.parallax-layer, .faq.parallax-layer, .info, info.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
       height: $(window).height() - 60 + "px"
     })
     $('.faq.parallax-layer .column .panel').css({
@@ -272,10 +260,10 @@ console.log("navbar link is being clicked" )
 //   '</p>'
 // }
 
-// function findTarget(element) {
-//   var name = element.attr('href').replace(/#/, '');
-//   return $('a[name="' + name + '"]')
-// }
+function findTarget(element) {
+  var name = element.attr('href').replace(/#/, '');
+  return $('a[name="' + name + '"]')
+}
 
 // END MORE MAPBOX
 
