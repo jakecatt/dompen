@@ -220,7 +220,7 @@ header.fixed {
     width: auto;
     height: auto;
     z-index: -100;
-    background: url(images/juliette.jpg) no-repeat; 
+    background: url(images/home_bg.jpg) no-repeat; 
     background-size: cover; }
  
  @media screen and (max-width: 1270px){
@@ -231,7 +231,7 @@ header.fixed {
 
  @media screen and (max-width: 500px){ 
   .home{
-    background: url(images/home_bg.jpg) #000 no-repeat center center fixed;
+    background: url(../../images/home_bg.jpg) #000 no-repeat center center fixed;
   }
 
   .home video#bgvid{
