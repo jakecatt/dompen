@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 $('.fancybox-media').on("click", function(e){
 console.log("FOOBAR")
 })
