@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-
+// FANCYBOX TEST
 $('.fancybox-media').on("click", function(e){
-console.log("FOOBAR")
+  console.log("FOOBAR")
 })
 
 
-  //navbar and scrolling fixed position
+  //NAVBAR TO FIXED
   $(window).scroll(function(e) {
     var scroll = $(this).scrollTop();
     if (scroll > 322) {
@@ -16,9 +16,8 @@ console.log("FOOBAR")
     }
   });
 
-  //slow scrolling to section when clicking on navbar link
-
-$('a').on('click', function(e){
+  //SCROLL TO SECTION
+  $('a').on('click', function(e){
     e.preventDefault();
     var target = findTarget($(this));
     console.log(target)
@@ -26,7 +25,178 @@ $('a').on('click', function(e){
       scrollTop: target.offset().top - 60
     }, 1000);
   })
-// START MAPBOX ======================================
+
+
+
+  // PANEL HEIGHT
+  $('.panel').css({
+    'height': $('.faq').height()/2 + "px"
+  })
+
+  // ?
+  if ($(document).width() > 514) {
+    $('li.left-header').css({
+      "margin-left": "3em"
+    })
+  }
+
+  
+  if ($(document).width() > 1400) {
+    $('li.left-header').css({
+      "margin-left": "3em"
+    })
+  }
+
+  // BREAK 1000
+  if ($(document).width() < 1000) {
+
+    // CAROUSEL NUMBER/HEIGHTS/WIDTHS RESPONSIVE
+    slidesToShow = 2;
+    $('.answer').addClass('show');
+    $('.home').addClass('small');
+
+    // HOME HEIGHT
+    $('.home').css({
+      height: $(window).height() + "px"
+    })
+
+    // SUBTRACT NAV HEIGHT
+    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() - 60 + "px"
+    })
+    // SPLIT SCREEN IN TWO ON FAQ
+    $('.faq .column .panel').css({
+      height: $(window).height() / 2 - 60 + "px"
+    })
+
+  // BREAK 1000-1200
+  } else if ($(document).width() > 1000 && $(document).width() < 1200) {
+
+    // CAROUSEL NUMBER OF SLIDES
+    slidesToShow = 2; 
+
+    // HOME HEIGHT
+    $('.home').css({
+      height: $(window).height() + "px"
+    })
+
+    // SUBTRACT NAV HEIGHT
+    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
+      height: $(window).height() - 60 + "px"
+    })
+
+    // SPLIT SCREEN IN TWO ON FAQ
+    $('.faq .column .panel').css({
+      height: $(window).height() / 2 - 60 + "px"
+    }) 
+
+  // BREAK 1200<
+  } else{
+    // CAROUSEL NUMBER OF SLIDES
+    slidesToShow = 4;
+  };
+
+
+  // CAROUSEL RESPONSIVE
+  $('.responsive').slick({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    // BREAK 1150+
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    // BREAK POINTS
+    responsive: [
+      {
+        breakpoint: 1150,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 880,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 590,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+});
+
+
+
+
+//FORM SUBMITION
+$(".signup").on("submit", function(e){
+  e.preventDefault()
+
+//EMAIL VALIDATION
+  if (  $('.email').val() !== "" ){
+
+//EMAIL MATCH VALIDATION
+    if ($('.email').val() === $(".confirm-email").val() ){
+      
+      $.ajax({ 
+        url: '/signup',
+        type: 'POST',
+        data:{"email": $('.email').val(),
+              "first_name":  $('.first-name').val(),
+              "company":  $('.company').val(),
+              "city":  $('.city').val(),
+              "phone":  $('.phone').val(),
+              "confirm_email":  $('.confirm-email').val(),
+              "last_name":  $('.last-name').val(),
+              "address":  $('.address').val(),
+              "state":  $('.state').val(),
+              "zip":  $('.zip').val(),
+              "comment":  $('.comment').val(),
+             },
+
+        error: function(jqXHR, textStatus, err){
+          console.log("FAILURE.")
+        }
+      })
+      
+      // ?
+      .done( function(data){
+    
+      })
+
+      // SAY THANKS!
+      $('.s-submit').attr("class", "green-submit").val("Thanks!")
+
+      //CLEAR FIELDS AFTER SUBMIT
+      $('.email').val("")
+      $('.first-name').val("")
+      $('.last-name').val("")
+      $('.company').val("")
+      $('.city').val("")
+      $('.phone').val("")
+      $('.confirm-email').val("")
+      $('.address').val("")
+      $('.state').val("")
+      $('.zip').val("")
+      $('.comment').val("")    
+
+    } else {
+      // IF EMAILS DON'T MATCH
+      console.log("emails don't match")
+    }
+  }
+
+  // START MAPBOX ======================================
 
   //display locations stored in the locations.js file
   // showLocationsList();
@@ -60,7 +230,7 @@ $('a').on('click', function(e){
 
   // function showMap(err, data) {
   //   if (data.lbounds) {
-  //     var coords = latLng(data.lbounds)	
+  //     var coords = latLng(data.lbounds)  
   //     // the second argument of setView is how far the map is zoomed in
   //     map.setView(coords, 10)
 
@@ -120,120 +290,15 @@ $('a').on('click', function(e){
   //   }]
   //   myLayer.on('layeradd', function(e) {
   //     var marker = e.layer,
-  //   	  feature = marker.feature;
+  //      feature = marker.feature;
   //     marker.setIcon(L.icon(feature.properties.icon));
   //   });
 
   //   // Add features to the map.
-  //   myLayer.setGeoJSON(geoJson);		
+  //   myLayer.setGeoJSON(geoJson);   
   // }
 
 // ----------- END MAPBOX ------------------
-
-  // Setting the number of slides shown in the carousel depending on screen size 
-  // setting various heights and widths depending on screen size
-  $('.panel').css({
-    'height': $('.faq').height()/2 + "px"
-  })
-
-  if ($(document).width() > 514) {
-    $('li.left-header').css({
-      "margin-left": "3em"
-    })
-  }
-
-  // if ($(document).width() < 514) {
-  //   $('#bgvid').hide;
-
-  // }
-
-  if ($(document).width() > 1400) {
-    $('li.left-header').css({
-      "margin-left": "3em"
-    })
-  }
-
-  if ($(document).width() < 1000) {
-    //show to slides in carousel when screen is smaller
-    slidesToShow = 2;
-    $('.answer').addClass('show');
-    // $('video').hide();
-    $('.home').addClass('small');
-    $('.home').css({
-      height: $(window).height() + "px"
-    })
-    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
-      height: $(window).height() - 60 + "px"
-    })
-    $('.faq .column .panel').css({
-      height: $(window).height() / 2 - 60 + "px"
-    })
-  } else if ($(document).width() > 1000 && $(document).width() < 1200) {
-    //show to slides in carousel when screen is medium
-    slidesToShow = 2;
-    // $('video').hide();
-    $('.home').addClass('small');    
-    $('.home').css({
-      height: $(window).height() + "px"
-    })
-    $('.product, .info, .faq, .contact, .more-info .faq .column').css({
-      height: $(window).height() - 60 + "px"
-    })
-    $('.faq .column .panel').css({
-      height: $(window).height() / 2 - 60 + "px"
-    })    
-  } else{
-    // activate parallax when screen is reg sized or large
-
-    $('.product, .product.parallax-layer, .faq.parallax-layer, .info, info.parallax-layer, .contact.parallax-layer, .more-info, .faq .location-container').css({
-      height: $(window).height() - 60 + "px"
-    })
-    $('.faq.parallax-layer .column .panel').css({
-      height: $(window).height() / 2 + "px"
-    })
-    slidesToShow = 4;
-  };
-
-
-//slick responsive stuff. refer to slick docs
-  $('.responsive').slick({
-    dots: true,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    responsive: [
-      {
-        breakpoint: 1150,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 880,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 590,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-
-});
 
 // BEGIN MORE MAPBOX
 // function latLng(data) {
@@ -261,68 +326,11 @@ $('a').on('click', function(e){
 //   '</p>'
 // }
 
-function findTarget(element) {
-  var name = element.attr('href').replace(/#/, '');
-  return $('a[name="' + name + '"]')
-}
+// function findTarget(element) {
+//   var name = element.attr('href').replace(/#/, '');
+//   return $('a[name="' + name + '"]')
+// }
 
 // END MORE MAPBOX
-
-$(".signup").on("submit", function(e){
-
-  e.preventDefault()
-//change the button to say thank you
-
-//make sure that they put something in the email
-  if (  $('.email').val() !== "" ){
-//make sure that the two emails match
-    if ($('.email').val() === $(".confirm-email").val() ){
-      
-      $.ajax({ 
-        url: '/signup',
-        type: 'POST',
-        data:{"email": $('.email').val(),
-              "first_name":  $('.first-name').val(),
-              "company":  $('.company').val(),
-              "city":  $('.city').val(),
-              "phone":  $('.phone').val(),
-              "confirm_email":  $('.confirm-email').val(),
-              "last_name":  $('.last-name').val(),
-              "address":  $('.address').val(),
-              "state":  $('.state').val(),
-              "zip":  $('.zip').val(),
-              "comment":  $('.comment').val(),
-             },
-
-        error: function(jqXHR, textStatus, err){
-          console.log("FAILURE.")
-        }
-      })
-      // goes here
-        .done( function(data){
-      
-        })
-
-      $('.s-submit').attr("class", "green-submit").val("Thanks!")
-      //clear all of the fields
-      $('.email').val("")
-      $('.first-name').val("")
-      $('.last-name').val("")
-      $('.company').val("")
-      $('.city').val("")
-      $('.phone').val("")
-      $('.confirm-email').val("")
-      $('.address').val("")
-      $('.state').val("")
-      $('.zip').val("")
-      $('.comment').val("")    
-
-    }
-    else {
-      console.log("emails don't match")
-      //jake make sure to render something to the page if the emails don't match
-    }
-  }
-
 
 });
