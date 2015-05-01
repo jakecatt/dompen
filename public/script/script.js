@@ -70,6 +70,7 @@ $(document).ready(function(){
     $('.product, .info, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() - 60 + "px"
     })
+
     // SPLIT SCREEN IN TWO ON FAQ
     $('.faq .column .panel').css({
       height: $(window).height() / 2 - 60 + "px"
@@ -130,7 +131,7 @@ $(document).ready(function(){
         }
       },
       {
-        breakpoint: 590,
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
