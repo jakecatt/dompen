@@ -513,28 +513,6 @@ header.fixed{
       opacity: 1; }
     .info .panel-info:hover .desc {
       opacity: 0; }
-    
-  
-    /*BREAK-1400*/
-    @media (max-width: 1400px) {
-
-    }
-
-    /*BREAK-1300*/
-    @media (max-width: 1300px) {
-
-    }
-
-
-    /*BREAK-1200*/
-    @media (max-width: 1200px) {
-
-    }
-
-    /*BREAK-1100*/
-    @media (max-width: 1100px) {
-
-    }
 
     /*BREAK-1000*/
     @media (max-width: 1000px) {
