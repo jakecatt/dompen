@@ -335,63 +335,95 @@ header.fixed{
 
     /*BREAK-1400*/
     @media (max-width: 1400px) {
-
+      .product img {
+        width: 60%;
+        margin-left: 24%;}
     }
-
-    /*BREAK-1300*/
-    @media (max-width: 1300px) {
-
-    }
-
 
     /*BREAK-1200*/
     @media (max-width: 1200px) {
-
+      .product img {
+        width: 65%;
+        margin-left: 22%;}
     }
 
     /*BREAK-1100*/
     @media (max-width: 1100px) {
-
+      .product img {
+        width: 72%;
+        margin-left: 22%;}
     }
 
     /*BREAK-1000*/
     @media (max-width: 1000px) {
-
+      .product img {
+        width: 80%;
+        margin-left: 18%;}
     }
 
     /*BREAK-900*/
     @media (max-width: 900px) {
-
+      .product img {
+        width: 85%;
+        margin-left: 14%;}
     }
 
     /*BREAK-800*/
     @media (max-width: 800px) {
-
+      .product img {
+        margin-top: 5%;
+        width: 90%;
+        margin-left: 10%;}
     }
 
     /*BREAK-700*/
     @media (max-width: 700px) {
+      #product-mobile{
+        display: block;
+        width: 83%;
+        margin-top: -1%;
+        margin-left: 8%;}
+      .product img {
+        display: none;}
 
     }
 
     /*BREAK-600*/
     @media (max-width: 600px) {
+      #product-mobile{
+        width: 94%;
+        margin-top: -1%;
+        margin-left: 1%;}
+    }
 
+    /*BREAK-500*/
+    @media (max-width: 600px) {
+      #product-mobile{
+        display: block;
+        width: 98%;
+        margin-top: 3%;
+        margin-left: -1%;}
     }
 
     /*BREAK-MOBILE-420*/
     @media (max-width: 420px) {
-
+      #product-mobile{
+        width: 100%;
+        margin-top: 28%;}
     }
 
     /*BREAK-MOBILE-380*/
     @media (max-width: 380px) {
-
+      #product-mobile{
+        width: 97%;
+        margin-left: 1%;}
     }
 
     /*BREAK-MOBILE-320*/
-    @media (max-width: 321px) {
-
+    @media (max-height: 481px) {
+      #product-mobile{
+        width: 100%;
+        margin-top: 10%;}
     }
 
 
@@ -482,8 +514,6 @@ header.fixed{
     .info .panel-info:hover .desc {
       opacity: 0; }
     
-
-   
   
     /*BREAK-1400*/
     @media (max-width: 1400px) {
