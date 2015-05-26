@@ -25,7 +25,7 @@ $(document).ready(function(){
   //SCROLL TO SECTION
   $('a').on('click', function(e){
     e.preventDefault();
-    var target = findTarget($(this));
+    var target= findTarget($(this));
     console.log(target)
     $('html, body').stop().animate({
       scrollTop: target.offset().top - 60
@@ -33,11 +33,12 @@ $(document).ready(function(){
   })
 
 
+  if ($(window).height() < 640) {
+    $('.area-jont').css({
+      'height': "640px"
+    })
+  }
 
-  // PANEL HEIGHT
-  $('.panel').css({
-    'height': $('.faq').height()/2 + "px"
-  })
 
   // ?
   if ($(document).width() > 514) {
@@ -52,6 +53,8 @@ $(document).ready(function(){
       "margin-left": "3em"
     })
   }
+
+  
 
   // BREAK 1000
   if ($(document).width() < 1000) {
@@ -70,7 +73,6 @@ $(document).ready(function(){
     $('.product, .info, .faq, .contact, .more-info .faq .column').css({
       height: $(window).height() - 60 + "px"
     })
-
     // SPLIT SCREEN IN TWO ON FAQ
     $('.faq .column .panel').css({
       height: $(window).height() / 2 - 60 + "px"
@@ -131,7 +133,7 @@ $(document).ready(function(){
         }
       },
       {
-        breakpoint: 500,
+        breakpoint: 590,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
